@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { TestCard } from "@/components/tests/TestCard";
 import { popularTests } from "@/data/tests";
+import { Brain, HeartPulse, Leaf, Sparkles } from "lucide-react";
 
 const Index = () => {
   return (
@@ -13,22 +14,25 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-violet-50 to-indigo-50">
+      <section className="w-full py-12 md:py-24 lg:py-32 gradient-bg">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
+            <Leaf className="h-12 w-12 text-primary mb-2" />
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                MindProve
+                <span className="bg-gradient-to-r from-primary to-wellness-400 bg-clip-text text-transparent">
+                  MindProve
+                </span>
               </h1>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+              <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
                 Free mental health assessments, personality tests, and guides to help you understand yourself better.
               </p>
             </div>
-            <div className="space-x-4">
-              <Button asChild size="lg">
+            <div className="space-x-4 pt-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link to="/tests">Take a Test</Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
                 <Link to="/guides">Explore Guides</Link>
               </Button>
             </div>
@@ -41,7 +45,11 @@ const Index = () => {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Popular Tests</h2>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                <span className="bg-gradient-to-r from-primary to-wellness-400 bg-clip-text text-transparent">
+                  Popular Tests
+                </span>
+              </h2>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
                 Discover our most popular assessments and learn more about yourself.
               </p>
@@ -51,7 +59,7 @@ const Index = () => {
                 <TestCard key={test.id} test={test} />
               ))}
             </div>
-            <Button asChild variant="outline" className="mt-8">
+            <Button asChild variant="outline" className="mt-8 border-primary text-primary hover:bg-primary/10">
               <Link to="/tests">View All Tests</Link>
             </Button>
           </div>
@@ -59,11 +67,19 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="w-full py-12 md:py-24 bg-gray-50">
+      <section className="w-full py-12 md:py-24 bg-accent">
         <div className="container px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              <span className="bg-gradient-to-r from-primary to-wellness-400 bg-clip-text text-transparent">
+                Why MindProve?
+              </span>
+            </h2>
+          </div>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-12">
-            <Card className="border-0 shadow-sm">
-              <CardHeader>
+            <Card className="border-0 shadow-sm card-hover">
+              <CardHeader className="text-center">
+                <Brain className="h-12 w-12 text-primary mx-auto mb-2" />
                 <CardTitle>Scientifically Validated</CardTitle>
               </CardHeader>
               <CardContent>
@@ -72,8 +88,9 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-0 shadow-sm">
-              <CardHeader>
+            <Card className="border-0 shadow-sm card-hover">
+              <CardHeader className="text-center">
+                <HeartPulse className="h-12 w-12 text-primary mx-auto mb-2" />
                 <CardTitle>Save Your Results</CardTitle>
               </CardHeader>
               <CardContent>
@@ -82,8 +99,9 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-0 shadow-sm">
-              <CardHeader>
+            <Card className="border-0 shadow-sm card-hover">
+              <CardHeader className="text-center">
+                <Sparkles className="h-12 w-12 text-primary mx-auto mb-2" />
                 <CardTitle>Share Your Insights</CardTitle>
               </CardHeader>
               <CardContent>
@@ -92,6 +110,11 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+          <div className="flex justify-center mt-12">
+            <Button asChild className="bg-primary hover:bg-primary/90">
+              <Link to="/resources">Explore Resources</Link>
+            </Button>
           </div>
         </div>
       </section>
