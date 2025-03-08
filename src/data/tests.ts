@@ -1,4 +1,3 @@
-
 import { Test } from "@/types/test";
 
 export const tests: Test[] = [
@@ -8,8 +7,10 @@ export const tests: Test[] = [
     shortDescription: "Evaluate your anxiety levels and learn coping strategies",
     fullDescription: "This assessment helps you understand your anxiety levels based on clinically validated questions. After completing the test, you'll receive personalized insights and recommendations for managing anxiety.",
     category: "mental-health",
+    tags: ["anxiety", "stress", "mental-health"],
     timeMinutes: 5,
     completions: 15872,
+    illustration: "/illustrations/anxiety.svg",
     questions: [
       {
         id: "q1",
@@ -74,8 +75,10 @@ export const tests: Test[] = [
     shortDescription: "Discover your personality traits based on the Five-Factor Model",
     fullDescription: "The Big Five Personality Test measures the five major dimensions of personality: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. This scientifically validated assessment will help you understand your unique personality profile.",
     category: "personality",
+    tags: ["personality", "psychology", "traits"],
     timeMinutes: 10,
     completions: 24691,
+    illustration: "/illustrations/personality.svg",
     questions: [
       {
         id: "q1",
@@ -145,8 +148,10 @@ export const tests: Test[] = [
     shortDescription: "Assess symptoms of depression with this quick screening tool",
     fullDescription: "This screening tool is based on the PHQ-9, a widely used instrument for assessing the severity of depression. The results will help you understand if you might be experiencing symptoms of depression and provide guidance on next steps.",
     category: "mental-health",
+    tags: ["depression", "mood", "mental-health"],
     timeMinutes: 3,
     completions: 12458,
+    illustration: "/illustrations/depression.svg",
     questions: [
       {
         id: "q1",
@@ -211,8 +216,10 @@ export const tests: Test[] = [
     shortDescription: "Find career paths that match your skills and interests",
     fullDescription: "This career aptitude test analyzes your skills, interests, and preferences to suggest career paths that might be a good fit for you. Discover professional directions that align with your natural strengths and motivations.",
     category: "career",
+    tags: ["career", "aptitude", "professional"],
     timeMinutes: 8,
     completions: 9245,
+    illustration: "/illustrations/career.svg",
     questions: [
       {
         id: "q1",
@@ -276,10 +283,282 @@ export const tests: Test[] = [
       },
     ],
   },
+  {
+    id: "myers-briggs",
+    title: "Myers-Briggs Personality Type",
+    shortDescription: "Discover your personality type among the 16 MBTI types",
+    fullDescription: "The Myers-Briggs Type Indicator (MBTI) is one of the most popular personality assessments worldwide. It categorizes people into 16 distinct personality types based on psychological preferences in how they perceive the world and make decisions.",
+    category: "personality",
+    tags: ["myers-briggs", "mbti", "personality", "psychology"],
+    timeMinutes: 12,
+    completions: 31452,
+    illustration: "/illustrations/mbti.svg",
+    questions: [
+      {
+        id: "q1",
+        text: "At social events, you:",
+        type: "multiple-choice",
+        options: [
+          { id: "q1-a1", text: "Interact with many, including strangers", value: 1 },
+          { id: "q1-a2", text: "Interact with a few people you know", value: 0 },
+        ],
+      },
+      {
+        id: "q2",
+        text: "You tend to:",
+        type: "multiple-choice",
+        options: [
+          { id: "q2-a1", text: "Be realistic rather than theoretical", value: 0 },
+          { id: "q2-a2", text: "Be theoretical rather than realistic", value: 1 },
+        ],
+      },
+      {
+        id: "q3",
+        text: "When making decisions, you typically:",
+        type: "multiple-choice",
+        options: [
+          { id: "q3-a1", text: "Consider people's feelings and needs", value: 0 },
+          { id: "q3-a2", text: "Consider logical consequences of choices", value: 1 },
+        ],
+      },
+      {
+        id: "q4",
+        text: "When working on projects, you prefer to:",
+        type: "multiple-choice",
+        options: [
+          { id: "q4-a1", text: "Work steadily with a realistic schedule", value: 0 },
+          { id: "q4-a2", text: "Work in bursts of energy with last minute rushes", value: 1 },
+        ],
+      },
+      {
+        id: "q5",
+        text: "You prefer to:",
+        type: "multiple-choice",
+        options: [
+          { id: "q5-a1", text: "Keep your options open", value: 1 },
+          { id: "q5-a2", text: "Have things planned and settled", value: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "hedonism-scale",
+    title: "Hedonism Scale",
+    shortDescription: "Measure your tendency toward pleasure-seeking behaviors",
+    fullDescription: "The Hedonism Scale assesses your orientation toward seeking pleasure and avoiding pain. It measures the extent to which you prioritize enjoyment, comfort, and gratification in your life choices.",
+    category: "lifestyle",
+    tags: ["hedonism", "pleasure", "lifestyle", "values"],
+    timeMinutes: 5,
+    completions: 7823,
+    illustration: "/illustrations/hedonism.svg",
+    questions: [
+      {
+        id: "q1",
+        text: "Experiencing pleasure is the most important thing in life.",
+        type: "likert",
+        options: [
+          { id: "q1-a1", text: "Strongly disagree", value: 1 },
+          { id: "q1-a2", text: "Disagree", value: 2 },
+          { id: "q1-a3", text: "Neutral", value: 3 },
+          { id: "q1-a4", text: "Agree", value: 4 },
+          { id: "q1-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q2",
+        text: "I prioritize immediate enjoyment over long-term goals.",
+        type: "likert",
+        options: [
+          { id: "q2-a1", text: "Strongly disagree", value: 1 },
+          { id: "q2-a2", text: "Disagree", value: 2 },
+          { id: "q2-a3", text: "Neutral", value: 3 },
+          { id: "q2-a4", text: "Agree", value: 4 },
+          { id: "q2-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q3",
+        text: "I believe life should be lived to the fullest through pleasurable experiences.",
+        type: "likert",
+        options: [
+          { id: "q3-a1", text: "Strongly disagree", value: 1 },
+          { id: "q3-a2", text: "Disagree", value: 2 },
+          { id: "q3-a3", text: "Neutral", value: 3 },
+          { id: "q3-a4", text: "Agree", value: 4 },
+          { id: "q3-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q4",
+        text: "I avoid situations that might cause discomfort or pain.",
+        type: "likert",
+        options: [
+          { id: "q4-a1", text: "Strongly disagree", value: 1 },
+          { id: "q4-a2", text: "Disagree", value: 2 },
+          { id: "q4-a3", text: "Neutral", value: 3 },
+          { id: "q4-a4", text: "Agree", value: 4 },
+          { id: "q4-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q5",
+        text: "I frequently make decisions based on what will bring me the most enjoyment.",
+        type: "likert",
+        options: [
+          { id: "q5-a1", text: "Strongly disagree", value: 1 },
+          { id: "q5-a2", text: "Disagree", value: 2 },
+          { id: "q5-a3", text: "Neutral", value: 3 },
+          { id: "q5-a4", text: "Agree", value: 4 },
+          { id: "q5-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "personality-disorder-screening",
+    title: "Personality Disorder Screening",
+    shortDescription: "A preliminary screening tool for personality disorder traits",
+    fullDescription: "This screening tool helps identify potential traits associated with personality disorders. It's designed as an initial assessment only and is not a diagnostic tool. If your results indicate potential concerns, consider consulting with a mental health professional.",
+    category: "psychology",
+    tags: ["personality disorder", "mental-health", "psychology", "screening"],
+    timeMinutes: 8,
+    completions: 5678,
+    illustration: "/illustrations/psychological.svg",
+    questions: [
+      {
+        id: "q1",
+        text: "I often have trouble maintaining stable relationships.",
+        type: "likert",
+        options: [
+          { id: "q1-a1", text: "Not at all", value: 0 },
+          { id: "q1-a2", text: "Occasionally", value: 1 },
+          { id: "q1-a3", text: "Moderately", value: 2 },
+          { id: "q1-a4", text: "Very much", value: 3 },
+        ],
+      },
+      {
+        id: "q2",
+        text: "My emotions tend to be intense and change rapidly.",
+        type: "likert",
+        options: [
+          { id: "q2-a1", text: "Not at all", value: 0 },
+          { id: "q2-a2", text: "Occasionally", value: 1 },
+          { id: "q2-a3", text: "Moderately", value: 2 },
+          { id: "q2-a4", text: "Very much", value: 3 },
+        ],
+      },
+      {
+        id: "q3",
+        text: "I have a pattern of unstable self-image or sense of self.",
+        type: "likert",
+        options: [
+          { id: "q3-a1", text: "Not at all", value: 0 },
+          { id: "q3-a2", text: "Occasionally", value: 1 },
+          { id: "q3-a3", text: "Moderately", value: 2 },
+          { id: "q3-a4", text: "Very much", value: 3 },
+        ],
+      },
+      {
+        id: "q4",
+        text: "I often feel that others are judging me negatively.",
+        type: "likert",
+        options: [
+          { id: "q4-a1", text: "Not at all", value: 0 },
+          { id: "q4-a2", text: "Occasionally", value: 1 },
+          { id: "q4-a3", text: "Moderately", value: 2 },
+          { id: "q4-a4", text: "Very much", value: 3 },
+        ],
+      },
+      {
+        id: "q5",
+        text: "I have difficulty trusting others and often suspect their intentions.",
+        type: "likert",
+        options: [
+          { id: "q5-a1", text: "Not at all", value: 0 },
+          { id: "q5-a2", text: "Occasionally", value: 1 },
+          { id: "q5-a3", text: "Moderately", value: 2 },
+          { id: "q5-a4", text: "Very much", value: 3 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "emotional-intelligence",
+    title: "Emotional Intelligence Assessment",
+    shortDescription: "Evaluate your ability to understand and manage emotions",
+    fullDescription: "This assessment measures your emotional intelligence - the ability to recognize, understand, and manage your own emotions, as well as recognize, understand and influence the emotions of others. Higher emotional intelligence is linked to better relationships and career success.",
+    category: "psychology",
+    tags: ["emotional intelligence", "EQ", "psychology", "self-awareness"],
+    timeMinutes: 8,
+    completions: 14356,
+    illustration: "/illustrations/emotional.svg",
+    questions: [
+      {
+        id: "q1",
+        text: "I can recognize my emotions as I experience them.",
+        type: "likert",
+        options: [
+          { id: "q1-a1", text: "Strongly disagree", value: 1 },
+          { id: "q1-a2", text: "Disagree", value: 2 },
+          { id: "q1-a3", text: "Neutral", value: 3 },
+          { id: "q1-a4", text: "Agree", value: 4 },
+          { id: "q1-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q2",
+        text: "I can see things from another person's point of view.",
+        type: "likert",
+        options: [
+          { id: "q2-a1", text: "Strongly disagree", value: 1 },
+          { id: "q2-a2", text: "Disagree", value: 2 },
+          { id: "q2-a3", text: "Neutral", value: 3 },
+          { id: "q2-a4", text: "Agree", value: 4 },
+          { id: "q2-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q3",
+        text: "I am able to control disruptive emotions in stressful situations.",
+        type: "likert",
+        options: [
+          { id: "q3-a1", text: "Strongly disagree", value: 1 },
+          { id: "q3-a2", text: "Disagree", value: 2 },
+          { id: "q3-a3", text: "Neutral", value: 3 },
+          { id: "q3-a4", text: "Agree", value: 4 },
+          { id: "q3-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q4",
+        text: "I am good at managing my relationships with others.",
+        type: "likert",
+        options: [
+          { id: "q4-a1", text: "Strongly disagree", value: 1 },
+          { id: "q4-a2", text: "Disagree", value: 2 },
+          { id: "q4-a3", text: "Neutral", value: 3 },
+          { id: "q4-a4", text: "Agree", value: 4 },
+          { id: "q4-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q5",
+        text: "I can accurately identify emotions in others.",
+        type: "likert",
+        options: [
+          { id: "q5-a1", text: "Strongly disagree", value: 1 },
+          { id: "q5-a2", text: "Disagree", value: 2 },
+          { id: "q5-a3", text: "Neutral", value: 3 },
+          { id: "q5-a4", text: "Agree", value: 4 },
+          { id: "q5-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+    ],
+  },
 ];
 
 export const popularTests = [
   tests[1], // Big Five Personality Test
+  tests[4], // Myers-Briggs
   tests[0], // Anxiety Assessment
-  tests[2], // Depression Screening
 ];

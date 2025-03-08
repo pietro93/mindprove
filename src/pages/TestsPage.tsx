@@ -12,14 +12,18 @@ import { Search } from "lucide-react";
 const TestsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
   
   const categories = Array.from(new Set(tests.map(test => test.category)));
+  const tags = Array.from(new Set(tests.flatMap(test => test.tags))).sort();
   
   const filteredTests = tests.filter(test => {
     const matchesSearch = test.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           test.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory ? test.category === selectedCategory : true;
-    return matchesSearch && matchesCategory;
+    const matchesTag = selectedTag ? test.tags.includes(selectedTag) : true;
+    
+    return matchesSearch && matchesCategory && matchesTag;
   });
   
   return (
@@ -46,23 +50,43 @@ const TestsPage = () => {
             </div>
           </div>
           
-          <div className="mb-8 flex flex-wrap gap-2">
-            <Button
-              variant={selectedCategory === null ? "default" : "outline"}
-              onClick={() => setSelectedCategory(null)}
-              className="mr-2"
-            >
-              All
-            </Button>
-            {categories.map(category => (
+          <div className="mb-4">
+            <h2 className="text-lg font-medium mb-2">Categories</h2>
+            <div className="flex flex-wrap gap-2 mb-4">
               <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
+                variant={selectedCategory === null ? "default" : "outline"}
+                onClick={() => setSelectedCategory(null)}
+                size="sm"
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                All
               </Button>
-            ))}
+              {categories.map(category => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category)}
+                  size="sm"
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')}
+                </Button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mb-8">
+            <h2 className="text-lg font-medium mb-2">Popular Tags</h2>
+            <div className="flex flex-wrap gap-2">
+              {tags.map(tag => (
+                <Badge 
+                  key={tag}
+                  variant={selectedTag === tag ? "default" : "outline"} 
+                  className="cursor-pointer"
+                  onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
           
           {filteredTests.length > 0 ? (
@@ -81,6 +105,7 @@ const TestsPage = () => {
                 onClick={() => {
                   setSearchQuery("");
                   setSelectedCategory(null);
+                  setSelectedTag(null);
                 }}
               >
                 Reset Filters

@@ -4,10 +4,12 @@ export interface Test {
   title: string;
   shortDescription: string;
   fullDescription: string;
-  category: 'mental-health' | 'personality' | 'career';
+  category: 'mental-health' | 'personality' | 'career' | 'lifestyle' | 'psychology';
+  tags: string[];
   timeMinutes: number;
   questions: TestQuestion[];
   completions: number;
+  illustration: string; // Path to the illustration image
 }
 
 export interface TestQuestion {
@@ -31,4 +33,8 @@ export interface TestResult {
   score: number;
   interpretation: string;
   recommendations: string[];
+  dimensionScores?: Array<{
+    name: string;
+    score: number;
+  }>;
 }

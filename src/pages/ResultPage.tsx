@@ -5,17 +5,28 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Separator } from "@/components/ui/separator";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Share2, Download, User } from "lucide-react";
+import { Share2, User } from "lucide-react";
 import { tests } from "@/data/tests";
 import { toast } from "@/hooks/use-toast";
+import { TestResultChart } from "@/components/tests/TestResultChart";
+import { Progress } from "@/components/ui/progress";
 
 const ResultPage = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
   const { testId, testTitle, answers } = location.state || {};
   
-  // Generate a fake result
+  // Generate results from answers
   const testScore = 75; // Score between 0-100
+  
+  // Generate mock dimension scores for more detailed results
+  const dimensions = [
+    { name: "Openness", score: 85 },
+    { name: "Conscientiousness", score: 65 },
+    { name: "Extraversion", score: 45 },
+    { name: "Agreeableness", score: 72 },
+    { name: "Neuroticism", score: 38 },
+  ];
   
   const handleShare = () => {
     if (navigator.share) {
@@ -38,14 +49,6 @@ const ResultPage = () => {
         });
       });
     }
-  };
-  
-  const handleDownload = () => {
-    toast({
-      title: "Download started",
-      description: "Your results will be downloaded as a PDF.",
-    });
-    // In a real app, this would generate and download a PDF
   };
   
   const handleSaveToAccount = () => {
@@ -103,39 +106,78 @@ const ResultPage = () => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle>Your Score: {testScore}/100</CardTitle>
-              <CardDescription>Here's how to interpret your results</CardDescription>
+              <CardDescription>Here's a detailed breakdown of your results</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-6">
+              {/* Overall Score Visualization */}
+              <div className="mb-6">
+                <h3 className="font-medium mb-2">Overall Score</h3>
+                <div className="relative pt-1">
+                  <Progress value={testScore} className="h-4" />
+                  <div className="flex justify-between text-xs mt-1">
+                    <span>0</span>
+                    <span>25</span>
+                    <span>50</span>
+                    <span>75</span>
+                    <span>100</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Radar Chart for Dimensions */}
+              <div className="mb-6">
+                <h3 className="font-medium mb-2">Dimension Breakdown</h3>
+                <div className="h-64 w-full">
+                  <TestResultChart dimensions={dimensions} />
+                </div>
+              </div>
+              
+              {/* Dimension Details */}
               <div className="space-y-4">
-                <div>
-                  <h3 className="font-medium">What this means:</h3>
-                  <p className="text-gray-600 mt-1">
-                    {testScore > 75 
-                      ? "Your score indicates a high level in this assessment. This suggests that you have strong traits or tendencies in the measured areas."
-                      : testScore > 50
-                        ? "Your score is in the moderate range, suggesting balanced traits or tendencies in the measured areas."
-                        : "Your score is in the lower range, which may indicate less prominent traits or tendencies in the measured areas."}
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="font-medium">Recommendations:</h3>
-                  <ul className="list-disc list-inside text-gray-600 mt-1">
-                    <li>Continue to develop self-awareness through regular reflection</li>
-                    <li>Consider exploring related resources in our guides section</li>
-                    <li>Take follow-up assessments to track changes over time</li>
-                  </ul>
-                </div>
+                {dimensions.map((dimension) => (
+                  <div key={dimension.name} className="space-y-1">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">{dimension.name}</span>
+                      <span className="text-sm font-bold">{dimension.score}%</span>
+                    </div>
+                    <Progress value={dimension.score} className="h-2" />
+                    <p className="text-sm text-gray-500 mt-1">
+                      {dimension.score > 75 
+                        ? `Your ${dimension.name.toLowerCase()} score is high, indicating ${getDimensionDescription(dimension.name, 'high')}`
+                        : dimension.score > 50
+                          ? `Your ${dimension.name.toLowerCase()} score is moderate, indicating ${getDimensionDescription(dimension.name, 'moderate')}`
+                          : `Your ${dimension.name.toLowerCase()} score is low, indicating ${getDimensionDescription(dimension.name, 'low')}`}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h3 className="font-medium">What this means:</h3>
+                <p className="text-gray-600 mt-1">
+                  {testScore > 75 
+                    ? "Your score indicates a high level in this assessment. This suggests that you have strong traits or tendencies in the measured areas."
+                    : testScore > 50
+                      ? "Your score is in the moderate range, suggesting balanced traits or tendencies in the measured areas."
+                      : "Your score is in the lower range, which may indicate less prominent traits or tendencies in the measured areas."}
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="font-medium">Recommendations:</h3>
+                <ul className="list-disc list-inside text-gray-600 mt-1">
+                  <li>Continue to develop self-awareness through regular reflection</li>
+                  <li>Consider exploring related resources in our guides section</li>
+                  <li>Take follow-up assessments to track changes over time</li>
+                </ul>
               </div>
             </CardContent>
             <CardFooter className="flex flex-wrap gap-3">
               <Button onClick={handleShare} className="flex-1" variant="outline">
                 <Share2 className="mr-2 h-4 w-4" />
                 Share Results
-              </Button>
-              <Button onClick={handleDownload} className="flex-1" variant="outline">
-                <Download className="mr-2 h-4 w-4" />
-                Download PDF
               </Button>
               <Button onClick={handleSaveToAccount} className="flex-1">
                 <User className="mr-2 h-4 w-4" />
@@ -181,5 +223,38 @@ const ResultPage = () => {
     </div>
   );
 };
+
+// Helper function to generate descriptions for each dimension
+function getDimensionDescription(dimension: string, level: 'high' | 'moderate' | 'low'): string {
+  const descriptions = {
+    Openness: {
+      high: "a strong curiosity and appreciation for art, emotion, adventure, and unusual ideas.",
+      moderate: "a balance between traditional and new approaches, with selective curiosity.",
+      low: "a preference for the familiar, traditional, and concrete."
+    },
+    Conscientiousness: {
+      high: "strong self-discipline, carefulness, thoroughness, and a need for achievement.",
+      moderate: "reasonable organization and reliability, with some flexibility in approach.",
+      low: "a preference for spontaneity and flexibility over structured approaches."
+    },
+    Extraversion: {
+      high: "outgoing energy, positive emotions, assertiveness, and a desire for social stimulation.",
+      moderate: "a balance between social engagement and personal time.",
+      low: "a preference for solitary activities and environments with less external stimulation."
+    },
+    Agreeableness: {
+      high: "optimistic view of human nature, compassion, cooperation, and concern for social harmony.",
+      moderate: "selective trust and cooperation, with healthy skepticism.",
+      low: "skepticism about others' intentions and a focus on self-interest."
+    },
+    Neuroticism: {
+      high: "tendency to experience negative emotions, such as anxiety, anger, or depression more intensely.",
+      moderate: "occasional emotional reactions, but generally stable responses.",
+      low: "emotional stability and resilience in stressful situations."
+    }
+  };
+  
+  return descriptions[dimension as keyof typeof descriptions][level];
+}
 
 export default ResultPage;
