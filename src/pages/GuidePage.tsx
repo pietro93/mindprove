@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { guides } from "@/data/guides";
-import { ArrowLeft, ArrowRight, BookOpen, Clock, Heart, Share2, Bookmark, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Clock, Heart, Share2, Bookmark, CheckCircle, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import ReactMarkdown from 'react-markdown';
 
@@ -18,15 +18,19 @@ const GuidePage = () => {
   const [bookmarked, setBookmarked] = useState(false);
   const [completedSections, setCompletedSections] = useState<string[]>([]);
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
+  // This would normally come from an auth context
+  const [isSignedIn, setIsSignedIn] = useState(false);
   
   // Find the current guide
   const currentGuide = guides.find(guide => guide.id === id);
   
-  // Find next and previous guides
-  const orderedGuides = [...guides].sort((a, b) => (a.order || 0) - (b.order || 0));
-  const currentIndex = orderedGuides.findIndex(guide => guide.id === id);
-  const previousGuide = currentIndex > 0 ? orderedGuides[currentIndex - 1] : null;
-  const nextGuide = currentIndex < orderedGuides.length - 1 ? orderedGuides[currentIndex + 1] : null;
+  // Find next and previous guides within the same course
+  const courseGuides = currentGuide 
+    ? [...guides].filter(guide => guide.course === currentGuide.course).sort((a, b) => (a.order || 0) - (b.order || 0))
+    : [];
+  const currentIndex = courseGuides.findIndex(guide => guide.id === id);
+  const previousGuide = currentIndex > 0 ? courseGuides[currentIndex - 1] : null;
+  const nextGuide = currentIndex < courseGuides.length - 1 ? courseGuides[currentIndex + 1] : null;
   
   // Extract headings from content for the table of contents
   const extractHeadings = (content: string) => {
@@ -93,6 +97,19 @@ const GuidePage = () => {
   const headings = extractHeadings(currentGuide.content);
   
   const handleBookmark = () => {
+    if (!isSignedIn) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to bookmark guides and track your progress",
+        action: (
+          <Button size="sm" onClick={() => navigate("/login")}>
+            Sign In
+          </Button>
+        ),
+      });
+      return;
+    }
+    
     setBookmarked(!bookmarked);
     toast({
       title: bookmarked ? "Bookmark removed" : "Guide bookmarked",
@@ -111,6 +128,19 @@ const GuidePage = () => {
   };
   
   const handleCompleteSection = (headingId: string) => {
+    if (!isSignedIn) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to track your progress",
+        action: (
+          <Button size="sm" onClick={() => navigate("/login")}>
+            Sign In
+          </Button>
+        ),
+      });
+      return;
+    }
+    
     if (completedSections.includes(headingId)) {
       setCompletedSections(completedSections.filter(id => id !== headingId));
     } else {
@@ -120,10 +150,21 @@ const GuidePage = () => {
       if (completedSections.length + 1 === headings.length) {
         toast({
           title: "Module completed! 🎉",
-          description: "Great job! You've completed this module of the DBT course.",
+          description: "Great job! You've completed this module of the course.",
         });
       }
     }
+  };
+  
+  // For demo purposes - in a real app, this would be connected to a backend
+  const toggleSignIn = () => {
+    setIsSignedIn(!isSignedIn);
+    toast({
+      title: isSignedIn ? "Signed out" : "Signed in",
+      description: isSignedIn 
+        ? "You have been signed out" 
+        : "You are now signed in and can track your progress",
+    });
   };
   
   // Custom component for rendering markdown with interactive elements
@@ -191,7 +232,7 @@ const GuidePage = () => {
                 <div>
                   <h1 className="text-3xl font-bold">{currentGuide.title}</h1>
                   <p className="text-gray-600 mt-1">
-                    By {currentGuide.author} • Published {new Date(currentGuide.publishDate).toLocaleDateString()}
+                    Module {currentGuide.order} • {currentGuide.course}
                   </p>
                 </div>
               </div>
@@ -210,6 +251,10 @@ const GuidePage = () => {
                   <Share2 className="h-4 w-4 mr-2" />
                   Share
                 </Button>
+                {/* Demo toggle for sign in state */}
+                <Button variant="ghost" size="sm" onClick={toggleSignIn}>
+                  {isSignedIn ? "Sign Out" : "Sign In"}
+                </Button>
               </div>
             </div>
             
@@ -222,6 +267,12 @@ const GuidePage = () => {
                 <BookOpen className="h-4 w-4 mr-1" />
                 <span>{currentGuide.views.toLocaleString()} views</span>
               </div>
+              {isSignedIn && completedSections.length > 0 && (
+                <div className="flex items-center text-primary">
+                  <CheckCircle2 className="h-4 w-4 mr-1" />
+                  <span>{Math.round((completedSections.length / headings.length) * 100)}% complete</span>
+                </div>
+              )}
             </div>
           </div>
           
@@ -267,6 +318,20 @@ const GuidePage = () => {
                   </ScrollArea>
                 </div>
                 
+                {isSignedIn && completedSections.length === headings.length && (
+                  <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <div className="bg-primary/20 p-2 rounded-full">
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      </div>
+                      <span className="font-medium text-primary">Module Completed!</span>
+                    </div>
+                    <p className="text-sm text-center text-gray-600">
+                      You've earned a completion badge for this module
+                    </p>
+                  </div>
+                )}
+                
                 <div className="text-sm text-gray-500 mb-6">
                   <div className="flex items-center gap-1 mb-2">
                     <Heart className="h-4 w-4 text-primary" />
@@ -287,34 +352,6 @@ const GuidePage = () => {
                 <ReactMarkdown components={MarkdownComponents as any}>
                   {currentGuide.content}
                 </ReactMarkdown>
-                
-                <div className="mt-12 p-6 bg-secondary/40 rounded-lg">
-                  <h3 className="text-xl font-bold mb-4">Practice What You've Learned</h3>
-                  <p className="mb-4">
-                    The best way to internalize these skills is through consistent practice. 
-                    Try applying one of the techniques from this module in your daily life this week.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button onClick={() => {
-                      toast({
-                        title: "Practice reminder set",
-                        description: "We'll remind you to practice these skills throughout the week"
-                      });
-                    }}>
-                      <CheckCircle className="h-4 w-4 mr-2" />
-                      Set Practice Reminder
-                    </Button>
-                    <Button variant="outline" onClick={() => {
-                      // This would normally download resources
-                      toast({
-                        title: "Worksheet downloaded",
-                        description: "Check your downloads folder for the practice worksheet"
-                      });
-                    }}>
-                      Download Worksheet
-                    </Button>
-                  </div>
-                </div>
               </div>
               
               <Separator className="my-8" />
@@ -347,14 +384,21 @@ const GuidePage = () => {
                   </Button>
                 ) : (
                   <Button className="flex-1" onClick={() => {
-                    toast({
-                      title: "Course completed! 🎉",
-                      description: "Congratulations on completing the DBT Skills course!"
-                    });
+                    if (isSignedIn) {
+                      toast({
+                        title: "Course completed! 🎉",
+                        description: "Congratulations on completing the course!"
+                      });
+                    } else {
+                      toast({
+                        title: "Sign in to track progress",
+                        description: "Sign in to earn completion badges and track your progress"
+                      });
+                    }
                     navigate("/guides");
                   }}>
-                    Complete Course
-                    <CheckCircle className="ml-2 h-4 w-4" />
+                    Return to Courses
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 )}
               </div>
