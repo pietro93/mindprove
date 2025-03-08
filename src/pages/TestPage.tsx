@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +10,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { tests } from "@/data/tests";
 import { toast } from "@/hooks/use-toast";
-import { Clock } from "lucide-react";
+import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
 
 const TestPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,6 +20,39 @@ const TestPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
+
+  // Set up timer if test has a time limit
+  useEffect(() => {
+    if (test) {
+      setTimeRemaining(test.timeMinutes * 60); // Convert minutes to seconds
+    }
+  }, [test]);
+
+  // Timer countdown
+  useEffect(() => {
+    if (!timeRemaining) return;
+    
+    const timer = setInterval(() => {
+      setTimeRemaining(prev => {
+        if (!prev || prev <= 0) {
+          clearInterval(timer);
+          // Auto-submit when time expires
+          if (!loading) {
+            toast({
+              title: "Time's up!",
+              description: "Your test has been automatically submitted.",
+            });
+            handleSubmit();
+          }
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, [timeRemaining, loading]);
 
   if (!test) {
     return (
@@ -46,8 +79,30 @@ const TestPage = () => {
   const currentQuestion = test.questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / test.questions.length) * 100;
 
+  // Format remaining time as MM:SS
+  const formatTime = (seconds: number): string => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
   const handleOptionSelect = (value: string) => {
     setAnswers({ ...answers, [currentQuestion.id]: value });
+  };
+
+  const handleSubmit = () => {
+    setLoading(true);
+    // Simulate result calculation
+    setTimeout(() => {
+      const resultId = `result-${Date.now()}`; 
+      navigate(`/result/${resultId}`, { 
+        state: { 
+          testId: test.id, 
+          testTitle: test.title,
+          answers 
+        }
+      });
+    }, 1500);
   };
 
   const handleNext = () => {
@@ -63,16 +118,7 @@ const TestPage = () => {
     if (currentQuestionIndex < test.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setLoading(true);
-      // Simulate result calculation
-      setTimeout(() => {
-        const resultId = `result-${Date.now()}`; 
-        navigate(`/result/${resultId}`, { state: { 
-          testId: test.id, 
-          testTitle: test.title,
-          answers 
-        }});
-      }, 1500);
+      handleSubmit();
     }
   };
 
@@ -82,6 +128,8 @@ const TestPage = () => {
     }
   };
 
+  const isLastQuestion = currentQuestionIndex === test.questions.length - 1;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -89,9 +137,16 @@ const TestPage = () => {
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
             <h1 className="text-2xl font-bold">{test.title}</h1>
-            <div className="flex items-center mt-2 text-sm text-gray-500">
-              <Clock className="h-4 w-4 mr-1" />
-              <span>{test.timeMinutes} minutes</span>
+            <div className="flex items-center justify-between mt-2">
+              <div className="flex items-center text-sm text-gray-500">
+                <Clock className="h-4 w-4 mr-1" />
+                <span>{test.timeMinutes} minutes</span>
+              </div>
+              {timeRemaining !== null && (
+                <div className="text-sm font-medium">
+                  Time remaining: {formatTime(timeRemaining)}
+                </div>
+              )}
             </div>
           </div>
 
@@ -126,16 +181,49 @@ const TestPage = () => {
                 onClick={handlePrevious}
                 disabled={currentQuestionIndex === 0}
               >
+                <ChevronLeft className="mr-2 h-4 w-4" />
                 Previous
               </Button>
               <Button 
                 onClick={handleNext}
                 disabled={loading}
               >
-                {currentQuestionIndex === test.questions.length - 1 ? (loading ? "Processing..." : "Submit") : "Next"}
+                {isLastQuestion ? (loading ? "Processing..." : "Submit") : (
+                  <>
+                    Next
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </>
+                )}
               </Button>
             </CardFooter>
           </Card>
+
+          {/* Question indicators */}
+          <div className="mt-6">
+            <h3 className="text-sm font-medium mb-2">Questions</h3>
+            <div className="flex flex-wrap gap-2">
+              {test.questions.map((_, index) => (
+                <Button
+                  key={index}
+                  variant={index === currentQuestionIndex ? "default" : answers[test.questions[index].id] ? "outline" : "secondary"}
+                  className="w-8 h-8 p-0"
+                  onClick={() => {
+                    if (answers[currentQuestion.id] || currentQuestionIndex === index) {
+                      setCurrentQuestionIndex(index);
+                    } else {
+                      toast({
+                        title: "Please answer the current question",
+                        description: "You need to select an option for this question before jumping to another.",
+                        variant: "destructive",
+                      });
+                    }
+                  }}
+                >
+                  {index + 1}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
