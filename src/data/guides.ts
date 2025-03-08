@@ -1,9 +1,9 @@
-
 export interface Guide {
   id: string;
   title: string;
   description: string;
   category: string;
+  course: string;
   readingTime: number;
   views: number;
   content: string;
@@ -19,6 +19,7 @@ export const guides: Guide[] = [
     title: "Introduction to DBT",
     description: "Learn the core concepts and philosophy behind Dialectical Behavior Therapy.",
     category: "dbt",
+    course: "DBT",
     readingTime: 5,
     views: 15423,
     author: "Dr. Sarah Johnson",
@@ -74,6 +75,7 @@ In the next guide, we'll dive deeper into mindfulness, the foundation of all DBT
     title: "DBT Mindfulness Skills",
     description: "Master the foundational mindfulness skills that serve as the basis for all DBT practices.",
     category: "dbt",
+    course: "DBT",
     readingTime: 6,
     views: 12567,
     author: "Dr. Sarah Johnson",
@@ -169,6 +171,7 @@ In the next guide, we'll explore distress tolerance skills that help you manage 
     title: "DBT Distress Tolerance",
     description: "Learn to survive crisis situations and accept reality as it is, even when it's painful.",
     category: "dbt",
+    course: "DBT",
     readingTime: 7,
     views: 9876,
     author: "Dr. Michael Chen",
@@ -299,6 +302,7 @@ In the next guide, we'll explore emotion regulation skills that help you underst
     title: "DBT Emotion Regulation",
     description: "Discover practical techniques to understand, name, and change your emotional responses.",
     category: "dbt",
+    course: "DBT",
     readingTime: 7,
     views: 11542,
     author: "Dr. Sarah Johnson",
@@ -428,6 +432,7 @@ In the next guide, we'll explore interpersonal effectiveness skills to help you 
     title: "DBT Interpersonal Effectiveness",
     description: "Learn powerful strategies for maintaining healthy relationships while respecting your own needs and boundaries.",
     category: "dbt",
+    course: "DBT",
     readingTime: 8,
     views: 8532,
     author: "Dr. Michael Chen",
@@ -588,6 +593,7 @@ In our final guide, we'll look at how to integrate all DBT skills into daily lif
     title: "Integrating DBT Skills into Daily Life",
     description: "Learn how to combine and apply all DBT skills to create lasting positive change in your everyday experiences.",
     category: "dbt",
+    course: "DBT",
     readingTime: 6,
     views: 7890,
     author: "Dr. Sarah Johnson",
@@ -738,6 +744,195 @@ Remember, DBT is not about perfection but about building a life worth living—o
 **Practice Exercise:** Write a letter to your future self about the life you hope to create through practicing DBT skills. Keep it somewhere you can revisit when you need motivation.
 
 Congratulations on completing this DBT skills introduction course! You now have powerful tools to navigate life's challenges with greater wisdom, balance, and effectiveness.
+    `
+  },
+  {
+    id: "cbt-introduction",
+    title: "Introduction to CBT",
+    description: "Understand the basics of Cognitive Behavioral Therapy and how it can help change negative thought patterns.",
+    category: "cbt",
+    course: "CBT",
+    readingTime: 5,
+    views: 8765,
+    author: "Mental Health Expert",
+    publishDate: "2023-11-01",
+    illustrationPath: "/illustrations/psychological.svg",
+    order: 1,
+    content: `
+# Introduction to CBT
+
+Cognitive Behavioral Therapy (CBT) is one of the most widely used and evidence-based forms of psychotherapy. It focuses on identifying and changing negative thought patterns that can lead to harmful behaviors and emotional distress.
+
+## What is CBT?
+
+CBT is based on the idea that our thoughts, feelings, and behaviors are all interconnected. By changing one aspect—particularly how we think—we can positively impact how we feel and act.
+
+The core principle of CBT is that psychological problems are partly based on:
+- Unhelpful ways of thinking
+- Learned patterns of unhelpful behavior
+
+Learning to recognize and reframe negative thought patterns can help people develop more effective coping strategies and improve their emotional regulation.
+
+## Core Components of CBT
+
+### 1. Cognitive Restructuring
+
+*Identifying and challenging negative thoughts*
+
+Cognitive restructuring helps you recognize negative thought patterns and replace them with more balanced, realistic thoughts. This might involve:
+
+- Identifying automatic negative thoughts
+- Examining the evidence for and against these thoughts
+- Developing more balanced perspectives
+
+### 2. Behavioral Activation
+
+*Increasing engagement in positive activities*
+
+Behavioral activation involves scheduling activities that bring a sense of pleasure or accomplishment. This helps break cycles of inactivity, isolation, and low mood.
+
+### 3. Exposure Therapy
+
+*Confronting fears in a safe, controlled way*
+
+Exposure therapy helps you face situations you've been avoiding due to anxiety or fear. Through repeated exposure, the anxiety response diminishes over time.
+
+### 4. Skills Training
+
+*Learning new coping strategies*
+
+CBT often includes learning specific skills like:
+- Problem-solving techniques
+- Communication skills
+- Stress management strategies
+- Mindfulness practices
+
+## The CBT Process
+
+A typical CBT treatment follows these steps:
+
+1. **Identify troubling situations or conditions** in your life
+2. **Become aware of your thoughts, emotions, and beliefs** about these problems
+3. **Identify negative or inaccurate thinking patterns**
+4. **Challenge and reshape negative or inaccurate thinking**
+
+## How CBT Differs from Other Therapies
+
+Unlike some other therapeutic approaches that focus on childhood experiences or unconscious motivations, CBT is:
+
+- **Present-focused**: Primarily concerned with current problems and challenges
+- **Practical**: Teaches specific techniques and assigns "homework"
+- **Structured**: Follows a clear agenda in each session
+- **Collaborative**: Therapist and client work together as a team
+- **Time-limited**: Often completed in 12-20 sessions
+
+## Is CBT Effective?
+
+CBT has been extensively researched and has strong evidence for its effectiveness in treating:
+
+- Depression
+- Anxiety disorders
+- Panic attacks
+- Phobias
+- Post-traumatic stress disorder (PTSD)
+- Sleep problems
+- Eating disorders
+- Substance use disorders
+
+In the next module, we'll explore the relationship between thoughts, feelings, and behaviors in more detail.
+    `
+  },
+  {
+    id: "cbt-cognitive-triangle",
+    title: "The CBT Cognitive Triangle",
+    description: "Learn about the powerful relationship between thoughts, feelings, and behaviors.",
+    category: "cbt",
+    course: "CBT",
+    readingTime: 6,
+    views: 7654,
+    author: "Mental Health Expert",
+    publishDate: "2023-11-05",
+    illustrationPath: "/illustrations/anxiety.svg",
+    order: 2,
+    content: `
+# The CBT Cognitive Triangle
+
+The Cognitive Triangle (also called the CBT Triangle or Cognitive Triad) is a cornerstone concept in Cognitive Behavioral Therapy. It illustrates how our thoughts, feelings, and behaviors are all interconnected and influence each other.
+
+## Understanding the Cognitive Triangle
+
+The Cognitive Triangle consists of three components:
+
+### 1. Thoughts
+*Your perceptions, mental attitudes, and beliefs*
+
+These include:
+- Automatic thoughts that pop into your mind
+- Core beliefs about yourself, others, and the world
+- Assumptions and interpretations of events
+
+### 2. Feelings
+*Your emotions and physical sensations*
+
+These include:
+- Basic emotions like sadness, anger, fear, joy
+- Complex emotions like shame, guilt, pride
+- Physical sensations associated with emotions, like tension or butterflies
+
+### 3. Behaviors
+*Your actions and responses*
+
+These include:
+- What you do or don't do
+- How you respond to situations
+- Avoidance behaviors
+- Compulsions or habits
+
+## How the Triangle Works
+
+The three components continuously influence each other:
+
+- **Thoughts affect feelings and behaviors**: When you think "I'm going to fail this test," you feel anxious and might avoid studying.
+- **Feelings affect thoughts and behaviors**: When you feel depressed, you're more likely to think negatively and withdraw from activities.
+- **Behaviors affect thoughts and feelings**: When you avoid social situations, you reinforce thoughts that they're threatening and increase feelings of anxiety.
+
+## Breaking Negative Cycles
+
+The interconnected nature of the triangle means you can intervene at any point to create positive change:
+
+### Changing Thoughts
+By challenging negative thoughts and replacing them with more balanced ones, you can improve how you feel and behave.
+
+**Example:**
+- Negative thought: "I always mess everything up."
+- Balanced thought: "Sometimes I make mistakes, like everyone else, but I also succeed at many things."
+
+### Changing Behaviors
+By changing what you do, you can generate evidence that challenges negative thoughts and improves how you feel.
+
+**Example:**
+- Instead of avoiding a challenge, tackling it creates a sense of accomplishment and challenges the belief that you can't handle difficult situations.
+
+### Managing Feelings
+By developing emotional regulation skills, you can prevent emotions from triggering negative thoughts and unhelpful behaviors.
+
+**Example:**
+- Using deep breathing when anxious to prevent catastrophic thinking and avoidance behaviors.
+
+## Identifying Your Patterns
+
+To apply the Cognitive Triangle to your own life, try this exercise:
+
+1. **Situation**: Describe a specific situation that triggered distress
+2. **Thoughts**: What went through your mind during this situation?
+3. **Feelings**: What emotions did you experience? Rate their intensity (0-100%)
+4. **Behaviors**: What did you do or not do as a result?
+5. **Alternative Thought**: What's a more balanced way to think about the situation?
+6. **Result**: How might this alternative thought change your feelings and behaviors?
+
+**Practice Exercise:** Choose a recent situation where you felt upset. Use the steps above to analyze it using the Cognitive Triangle. Notice how changing your thoughts about the situation might change how you feel and behave.
+
+In the next module, we'll explore common cognitive distortions—specific patterns of negative thinking that contribute to emotional distress.
     `
   }
 ];
