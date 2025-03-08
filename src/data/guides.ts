@@ -9,400 +9,735 @@ export interface Guide {
   content: string;
   author: string;
   publishDate: string;
+  illustrationPath?: string;
+  order?: number;
 }
 
 export const guides: Guide[] = [
   {
-    id: "understanding-anxiety",
-    title: "Understanding Anxiety: Causes, Symptoms, and Coping Strategies",
-    description: "Learn about the different types of anxiety disorders and evidence-based approaches to manage symptoms.",
-    category: "anxiety",
-    readingTime: 8,
-    views: 12453,
+    id: "dbt-introduction",
+    title: "Introduction to DBT",
+    description: "Learn the core concepts and philosophy behind Dialectical Behavior Therapy.",
+    category: "dbt",
+    readingTime: 5,
+    views: 15423,
     author: "Dr. Sarah Johnson",
-    publishDate: "2023-04-15",
+    publishDate: "2023-09-15",
+    illustrationPath: "/illustrations/emotional.svg",
+    order: 1,
     content: `
-# Understanding Anxiety
+# Introduction to DBT
 
-Anxiety is a normal and often healthy emotion. However, when a person regularly feels disproportionate levels of anxiety, it might become a medical disorder.
+Dialectical Behavior Therapy (DBT) is a type of cognitive-behavioral therapy that was originally developed to treat borderline personality disorder. However, it has since been adapted to treat a wide range of mental health conditions, including depression, anxiety, substance use disorders, and eating disorders.
 
-## Common Types of Anxiety Disorders
+## What is DBT?
 
-1. **Generalized Anxiety Disorder (GAD)**: Characterized by persistent and excessive worry about various things.
-2. **Social Anxiety Disorder**: Involves intense fear of social situations.
-3. **Panic Disorder**: Characterized by recurring panic attacks.
-4. **Phobias**: Intense fear of specific objects or situations.
+DBT is based on the concept of dialectics, which means holding two seemingly opposite perspectives simultaneously. In DBT, the primary dialectic is between acceptance and change. This means accepting yourself as you are while also working to change behaviors that are causing problems in your life.
 
-## Symptoms of Anxiety
+## Core Components of DBT
 
-Anxiety can manifest in different ways, including:
+DBT consists of four main components:
 
-- Excessive worry
-- Restlessness
-- Fatigue
-- Difficulty concentrating
-- Irritability
-- Muscle tension
-- Sleep problems
+### 1. Mindfulness
 
-## Effective Coping Strategies
+*Being fully aware and present in the current moment*
 
-### 1. Deep Breathing
+Mindfulness helps you observe your thoughts and feelings without judgment. This skill allows you to experience emotions without being overwhelmed by them.
 
-Practice deep breathing by inhaling slowly through your nose for a count of four, holding for a count of two, and exhaling through your mouth for a count of six.
+### 2. Distress Tolerance
 
-### 2. Progressive Muscle Relaxation
+*Learning to cope with painful events when you cannot change them*
 
-Tense and then release each muscle group in your body, starting from your toes and working up to your head.
+Distress tolerance skills help you get through difficult situations without making them worse. These skills teach you to accept reality as it is, even when it's painful.
 
-### 3. Mindfulness Meditation
+### 3. Emotion Regulation
 
-Focus on the present moment without judgment. Pay attention to your thoughts, feelings, and sensations as they come and go.
+*Understanding and managing intense emotions*
 
-### 4. Regular Exercise
+Emotion regulation skills help you identify, name, and change your emotional responses. These skills are particularly helpful for people who experience intense emotions.
 
-Physical activity can help reduce stress and improve mood by releasing endorphins.
+### 4. Interpersonal Effectiveness
 
-### 5. Healthy Lifestyle
+*Navigating relationships in healthy ways*
 
-Maintain a balanced diet, get enough sleep, and limit caffeine and alcohol consumption.
+Interpersonal effectiveness skills help you communicate your needs, set boundaries, and maintain self-respect while preserving relationships.
 
-### 6. Seek Professional Help
+## Who Created DBT?
 
-If anxiety significantly affects your daily life, consider therapy or medication prescribed by a healthcare professional.
+DBT was developed by Dr. Marsha Linehan in the 1980s. Dr. Linehan combined standard cognitive-behavioral techniques with concepts from Buddhist mindfulness practices to create a treatment approach that emphasizes balance and integration.
 
-Remember, it's okay to ask for help. With the right support and strategies, anxiety can be managed effectively.
+In the next guide, we'll dive deeper into mindfulness, the foundation of all DBT skills.
     `
   },
   {
-    id: "managing-depression",
-    title: "Managing Depression: A Comprehensive Guide",
-    description: "Practical strategies for coping with depression and improving quality of life.",
-    category: "depression",
-    readingTime: 10,
+    id: "dbt-mindfulness",
+    title: "DBT Mindfulness Skills",
+    description: "Master the foundational mindfulness skills that serve as the basis for all DBT practices.",
+    category: "dbt",
+    readingTime: 6,
+    views: 12567,
+    author: "Dr. Sarah Johnson",
+    publishDate: "2023-09-20",
+    illustrationPath: "/illustrations/mindfulness.svg",
+    order: 2,
+    content: `
+# DBT Mindfulness Skills
+
+Mindfulness is the cornerstone of all DBT skills. It involves being fully aware and present in the moment without judgment.
+
+## The "What" Skills of Mindfulness
+
+### 1. Observe
+
+*Notice without attaching to what you observe*
+
+- Notice your breath moving in and out
+- Notice sensations in your body
+- Watch thoughts come and go like clouds in the sky
+- Pay attention to sounds around you
+
+**Practice Exercise:** Set a timer for 2 minutes. Focus only on your breath. When your mind wanders (and it will), gently bring your attention back to your breath.
+
+### 2. Describe
+
+*Put words to your experience*
+
+- Label your thoughts as "thoughts" and emotions as "emotions"
+- Describe only what you observe, not your interpretations
+- Use specific language: "I feel a tightness in my chest" rather than "I feel anxious"
+
+**Practice Exercise:** Look around your environment and describe 5 things you see using only factual statements without judgments.
+
+### 3. Participate
+
+*Fully engage in the present moment*
+
+- Immerse yourself completely in what you're doing
+- Let go of self-consciousness
+- Act intuitively rather than overthinking
+
+**Practice Exercise:** The next time you eat a meal, do it mindfully—notice the taste, texture, smell, and sensations of each bite.
+
+## The "How" Skills of Mindfulness
+
+### 1. Non-judgmentally
+
+*See facts, not evaluations*
+
+- Notice judgments and let them go
+- Replace "good/bad" with "effective/ineffective"
+- Distinguish between facts and opinions
+
+**Practice Exercise:** Notice when you make judgments throughout the day. Try to reframe them as neutral observations.
+
+### 2. One-mindfully
+
+*Do one thing at a time*
+
+- Focus completely on what you're doing
+- When your mind wanders, bring it back
+- Let go of distractions
+
+**Practice Exercise:** Choose a routine activity (like washing dishes) and do it with full attention.
+
+### 3. Effectively
+
+*Focus on what works*
+
+- Do what is needed in the situation
+- Let go of "shoulds" and "fair/unfair"
+- Play by the rules that are applicable
+
+**Practice Exercise:** Think of a current problem. Instead of focusing on what's fair, ask "What would be most effective right now?"
+
+## Integrating Mindfulness Into Daily Life
+
+Mindfulness isn't just a formal practice—it can be integrated into your daily activities:
+
+- Morning routine: Pay attention to the sensation of water during your shower
+- Commuting: Notice the sights, sounds, and sensations around you
+- Work: Focus completely on one task before moving to the next
+- Eating: Savor each bite, noticing flavors and textures
+
+Remember, mindfulness is a skill that improves with practice. Start with short periods and gradually extend them as you become more comfortable.
+
+In the next guide, we'll explore distress tolerance skills that help you manage crisis situations.
+    `
+  },
+  {
+    id: "dbt-distress-tolerance",
+    title: "DBT Distress Tolerance",
+    description: "Learn to survive crisis situations and accept reality as it is, even when it's painful.",
+    category: "dbt",
+    readingTime: 7,
     views: 9876,
     author: "Dr. Michael Chen",
-    publishDate: "2023-03-22",
+    publishDate: "2023-09-25",
+    illustrationPath: "/illustrations/depression.svg",
+    order: 3,
     content: `
-# Managing Depression
+# DBT Distress Tolerance
 
-Depression is more than just feeling sad or going through a rough patch. It's a serious mental health condition that requires understanding, treatment, and support.
+Distress tolerance skills help you get through painful situations without making them worse. These skills are particularly useful during crises when your emotions might overwhelm your ability to think clearly.
 
-## Understanding Depression
+## Crisis Survival Skills
 
-Depression is characterized by persistent feelings of sadness, loss of interest in activities once enjoyed, and a range of other physical and emotional symptoms.
+### 1. STOP Skill
 
-## Common Symptoms
+When emotions threaten to overwhelm you:
 
-- Persistent sad, anxious, or "empty" mood
-- Feelings of hopelessness or pessimism
-- Irritability
-- Loss of interest in hobbies and activities
-- Decreased energy or fatigue
-- Difficulty sleeping or oversleeping
-- Changes in appetite or weight
-- Thoughts of death or suicide
+**S - Stop**
+- Don't react automatically
+- Freeze and don't move a muscle
 
-## Effective Management Strategies
+**T - Take a step back**
+- Take a break
+- Remove yourself from the situation
 
-### 1. Seek Professional Help
+**O - Observe**
+- Notice what's happening inside and outside you
+- What are you feeling? What's going on?
 
-Therapy, such as cognitive-behavioral therapy (CBT) or interpersonal therapy (IPT), can be very effective for treating depression.
+**P - Proceed mindfully**
+- Consider what would be effective
+- Act with awareness
 
-### 2. Medication
+**Practice Exercise:** The next time you feel overwhelmed, practice the STOP skill. Write down what you observed and how it helped.
 
-Antidepressants can help improve the way your brain uses certain chemicals that control mood or stress.
+### 2. TIPP Skills for Managing Extreme Emotions
 
-### 3. Maintain Routine
+**T - Temperature Change**
+- Splash cold water on your face
+- Hold an ice cube in your hand
+- Take a hot or cold shower
 
-Structure your day with regular activities, even if you don't feel like it.
+**I - Intense Exercise**
+- Do jumping jacks
+- Run up and down stairs
+- Push against a wall
 
-### 4. Physical Activity
+**P - Paced Breathing**
+- Breathe deeply, with a longer exhale than inhale
+- Inhale for 4 counts, exhale for 6
+- Focus entirely on your breath
 
-Exercise can boost endorphins and other feel-good chemicals in your brain.
+**P - Paired Muscle Relaxation**
+- Tense and then relax each muscle group
+- Notice the difference between tension and relaxation
+- Combine with paced breathing
 
-### 5. Connect with Others
+**Practice Exercise:** Create a "distress tolerance kit" with items that can help with TIPP skills (e.g., a stress ball, essential oils, a list of exercises).
 
-Social support is crucial for managing depression. Stay connected with friends and family.
+### 3. ACCEPTS Skills for Distraction
 
-### 6. Mindfulness and Relaxation
+**A - Activities**
+- Engage in hobbies or tasks that require attention
+- Clean your room, do a puzzle, go for a walk
 
-Practices like meditation, deep breathing, and yoga can help reduce symptoms of depression.
+**C - Contributing**
+- Do something for someone else
+- Volunteer, help a friend, send a kind message
 
-### 7. Healthy Lifestyle
+**C - Comparisons**
+- Compare yourself to people coping the same or less well
+- Compare yourself to your own coping in the past
 
-Eat a balanced diet, get enough sleep, and avoid alcohol and drugs.
+**E - Emotions (different ones)**
+- Generate a different emotion
+- Watch a funny video, listen to uplifting music
 
-Remember, recovery from depression takes time, and there may be setbacks along the way. Be patient with yourself and celebrate small victories.
+**P - Pushing away**
+- Temporarily put the situation on a mental shelf
+- Build an imaginary wall between you and the problem
+
+**T - Thoughts**
+- Replace your thoughts with other thoughts
+- Count backwards from 100 by 7s
+- Recite song lyrics or a poem
+
+**S - Sensations**
+- Engage in intense sensory experiences
+- Hold an ice cube, take a hot shower, eat something spicy
+
+**Practice Exercise:** Make a list of at least two activities for each ACCEPTS category that you can use when in distress.
+
+## Radical Acceptance
+
+When you cannot change a situation, radical acceptance can prevent unnecessary suffering:
+
+### Principles of Radical Acceptance:
+
+1. **Acceptance doesn't mean approval**
+   - You can accept reality without liking it
+   - Acceptance acknowledges "what is" rather than "what should be"
+
+2. **Fighting reality only creates suffering**
+   - Pain is inevitable, but suffering is optional
+   - Suffering = Pain + Non-acceptance
+
+3. **Acceptance requires practice**
+   - It's not a one-time decision
+   - You may need to accept the same reality repeatedly
+
+### Steps to Radical Acceptance:
+
+1. Observe that you're fighting reality ("This shouldn't be happening")
+2. Remind yourself that reality can't be changed (the past is the past)
+3. Consider the causes of the current reality
+4. Accept with your whole self (mind, body, spirit)
+5. Practice accepting difficult situations with mindfulness
+6. List the advantages of accepting vs. the disadvantages of not accepting
+7. Practice willingness rather than willfulness
+
+**Practice Exercise:** Identify something you've been fighting against. Write down how fighting reality has affected you and how accepting it might change your experience.
+
+In the next guide, we'll explore emotion regulation skills that help you understand and manage your emotions effectively.
     `
   },
   {
-    id: "stress-reduction-techniques",
-    title: "Effective Stress Reduction Techniques for Daily Life",
-    description: "Learn practical methods to manage stress and promote mental wellbeing in your everyday routine.",
-    category: "stress",
-    readingTime: 6,
-    views: 15209,
-    author: "Emma Rodriguez, LMFT",
-    publishDate: "2023-05-10",
-    content: `
-# Effective Stress Reduction Techniques
-
-Stress is a natural physical and mental reaction to life experiences. But when stress becomes chronic, it can lead to serious health problems.
-
-## Quick Stress Relievers (5 minutes or less)
-
-### 1. Deep Breathing
-
-Take slow, deep breaths, inhaling through your nose and exhaling through your mouth.
-
-### 2. Progressive Relaxation
-
-Quickly tense and then relax each muscle group, starting from your toes and working up to your face.
-
-### 3. Visualization
-
-Close your eyes and imagine a peaceful, calming place or situation.
-
-### 4. Mindful Observation
-
-Focus on observing one thing in your environment in detail.
-
-## Medium-Length Stress Relievers (5-30 minutes)
-
-### 1. Mindfulness Meditation
-
-Sit quietly and focus on your breath, bodily sensations, or a simple mantra.
-
-### 2. Physical Activity
-
-Take a brisk walk, do jumping jacks, or stretch to release tension.
-
-### 3. Creative Expression
-
-Spend a few minutes journaling, doodling, or engaging in a creative hobby.
-
-## Lifestyle Changes for Long-Term Stress Management
-
-### 1. Regular Exercise
-
-Aim for at least 30 minutes of moderate exercise most days of the week.
-
-### 2. Healthy Diet
-
-Eat a balanced diet rich in fruits, vegetables, lean proteins, and whole grains.
-
-### 3. Adequate Sleep
-
-Prioritize getting 7-9 hours of quality sleep each night.
-
-### 4. Set Boundaries
-
-Learn to say no and set boundaries to avoid overcommitting yourself.
-
-### 5. Connect with Others
-
-Maintain a strong social support network with friends and family.
-
-Remember, managing stress is a lifelong practice. Find what works for you and make it a regular part of your routine.
-    `
-  },
-  {
-    id: "improving-sleep-quality",
-    title: "Improving Sleep Quality: A Guide to Better Rest",
-    description: "Discover evidence-based techniques to improve your sleep habits and wake up feeling refreshed.",
-    category: "sleep",
+    id: "dbt-emotion-regulation",
+    title: "DBT Emotion Regulation",
+    description: "Discover practical techniques to understand, name, and change your emotional responses.",
+    category: "dbt",
     readingTime: 7,
-    views: 8765,
-    author: "Dr. Lisa Thompson",
-    publishDate: "2023-02-18",
+    views: 11542,
+    author: "Dr. Sarah Johnson",
+    publishDate: "2023-10-01",
+    illustrationPath: "/illustrations/emotional.svg",
+    order: 4,
     content: `
-# Improving Sleep Quality
+# DBT Emotion Regulation
 
-Good sleep is essential for physical health, mental wellbeing, and daily functioning. Here's how to improve your sleep quality.
+Emotion regulation skills help you understand, identify, and change your emotional responses. These skills are particularly helpful when you experience intense emotions that make it difficult to think clearly or act effectively.
 
-## Understanding Sleep Cycles
+## Understanding Emotions
 
-Sleep consists of several cycles of NREM (non-rapid eye movement) and REM (rapid eye movement) sleep. A complete cycle takes about 90-110 minutes.
+### The Function of Emotions
 
-## Creating a Sleep-Friendly Environment
+Emotions serve important purposes:
 
-### 1. Keep it Dark
+1. **Communicate to others** - Your facial expressions and body language signal to others how you're feeling
+2. **Motivate action** - Emotions prepare your body to respond to situations
+3. **Provide information** - Emotions tell you about your environment and your reaction to it
 
-Use blackout curtains or an eye mask to block out light.
+### The Model of Emotions
 
-### 2. Keep it Quiet
+Emotions don't just happen; they follow a sequence:
 
-Use earplugs or white noise to mask disruptive sounds.
+1. **Prompting event** (internal or external)
+2. **Interpretation** of the event
+3. **Biological changes** in your body
+4. **Urges to act** in certain ways
+5. **Expressions** (face, posture, words)
+6. **Aftereffects** on your mood and behavior
 
-### 3. Keep it Cool
+**Practice Exercise:** Think of a recent emotional experience. Identify each component of the model of emotions.
 
-The ideal bedroom temperature is around 65°F (18°C).
+## Identifying and Naming Emotions
 
-### 4. Comfortable Bedding
+### Primary Emotions
 
-Invest in a good quality mattress and pillows that support your sleeping position.
+These are your initial, unfiltered emotional reactions:
+- **Joy** - Happiness, pleasure, satisfaction
+- **Sadness** - Grief, disappointment, despair
+- **Fear** - Anxiety, worry, terror
+- **Anger** - Irritation, frustration, rage
+- **Disgust** - Revulsion, aversion, dislike
+- **Shame** - Guilt, embarrassment, humiliation
+- **Jealousy** - Envy, resentment, insecurity
 
-## Establishing a Bedtime Routine
+### Secondary Emotions
 
-### 1. Consistent Schedule
+These are reactions to your primary emotions:
+- **Anger about feeling sad**
+- **Shame about feeling afraid**
+- **Anxiety about feeling angry**
 
-Go to bed and wake up at the same time every day, even on weekends.
+**Practice Exercise:** For one week, keep an emotion log. Record events, your emotions, and how intensely you feel them (1-10).
 
-### 2. Wind-Down Time
+## Reducing Emotional Vulnerability
 
-Spend 30-60 minutes before bed doing relaxing activities like reading or taking a warm bath.
+### The PLEASE Skills
 
-### 3. Limit Screen Time
+Taking care of your physical health reduces emotional vulnerability:
 
-Avoid screens for at least an hour before bed.
+**PL - Physical Illness**
+- Treat physical problems promptly
+- Take prescribed medications consistently
+- See healthcare providers regularly
 
-## Healthy Habits for Better Sleep
+**E - Exercise**
+- Move your body daily
+- Find activities you enjoy
+- Start small if you're not used to exercising
 
-### 1. Watch What You Consume
+**A - Avoid mood-altering substances**
+- Be cautious with alcohol, drugs, and caffeine
+- Notice how substances affect your emotions
 
-Limit caffeine after noon and avoid alcohol close to bedtime.
+**S - Sleep**
+- Aim for 7-9 hours of quality sleep
+- Develop a bedtime routine
+- Keep consistent sleep/wake times
 
-### 2. Regular Exercise
+**E - Eat balanced meals**
+- Eat regularly throughout the day
+- Include a variety of nutrients
+- Notice how food affects your mood
 
-Physical activity can promote better sleep, but try to finish vigorous exercise at least 3 hours before bedtime.
+**Practice Exercise:** Choose one PLEASE skill to focus on this week. Record how changes in this area affect your emotions.
 
-### 3. Manage Stress
+## Changing Emotional Responses
 
-Practice relaxation techniques like deep breathing, meditation, or gentle yoga.
+### Opposite Action
 
-If you continue to struggle with sleep despite trying these strategies, consider speaking with a healthcare provider about potential sleep disorders or other issues that might be affecting your rest.
+When your emotion doesn't fit the facts or isn't effective:
+
+1. **Identify the emotion** and its action urge
+2. **Check the facts** - Is your emotion justified? Is acting on it effective?
+3. **Act opposite** to the emotion's urge
+
+Examples:
+- **Fear** → Approach what you fear (gradually and safely)
+- **Anger** → Be gentle and empathetic
+- **Sadness** → Get active and engage
+- **Shame** → Share your experience with trusted others
+
+**Practice Exercise:** Identify an emotion that isn't serving you well. Practice opposite action for one week and record the results.
+
+### Problem Solving
+
+When your emotion fits the facts and the situation can be changed:
+
+1. **Describe** the problem situation
+2. **Check the facts** to ensure you understand the problem
+3. **Identify your goal** in the situation
+4. **Brainstorm** many possible solutions
+5. **Choose a solution** that works with your goals and values
+6. **Create a step-by-step plan**
+7. **Implement the plan**
+8. **Evaluate** whether it worked
+
+**Practice Exercise:** Identify a current problem causing distress. Work through each step of problem-solving.
+
+In the next guide, we'll explore interpersonal effectiveness skills to help you navigate relationships while maintaining self-respect.
     `
   },
   {
-    id: "mindfulness-for-beginners",
-    title: "Mindfulness for Beginners: Starting Your Practice",
-    description: "A simple guide to understanding and incorporating mindfulness into your daily routine.",
-    category: "mindfulness",
-    readingTime: 5,
-    views: 11234,
-    author: "Mark Williams, Meditation Instructor",
-    publishDate: "2023-01-30",
+    id: "dbt-interpersonal-effectiveness",
+    title: "DBT Interpersonal Effectiveness",
+    description: "Learn powerful strategies for maintaining healthy relationships while respecting your own needs and boundaries.",
+    category: "dbt",
+    readingTime: 8,
+    views: 8532,
+    author: "Dr. Michael Chen",
+    publishDate: "2023-10-05",
+    illustrationPath: "/illustrations/career.svg",
+    order: 5,
     content: `
-# Mindfulness for Beginners
+# DBT Interpersonal Effectiveness
 
-Mindfulness is the practice of paying attention to the present moment with openness, curiosity, and without judgment.
+Interpersonal effectiveness skills help you navigate relationships while balancing your objectives, maintaining self-respect, and preserving your relationships and their quality. These skills are particularly useful when you need to make requests, set boundaries, or say no.
 
-## Benefits of Mindfulness
+## Balancing Priorities in Relationships
 
-- Reduces stress and anxiety
-- Improves focus and concentration
-- Enhances emotional regulation
-- Promotes better sleep
-- Increases self-awareness
-- Reduces rumination and negative thinking
+Every interpersonal situation involves three main priorities:
 
-## Simple Mindfulness Exercises for Beginners
+1. **Objectives Effectiveness (DEAR MAN)** - Getting what you want
+2. **Relationship Effectiveness (GIVE)** - Maintaining the relationship
+3. **Self-Respect Effectiveness (FAST)** - Maintaining your self-respect
 
-### 1. Mindful Breathing (1-2 minutes)
+The challenge is determining which priority is most important in a specific situation.
 
-- Sit comfortably with your back straight
-- Focus your attention on your breath
-- Notice the sensation of air entering and leaving your nostrils
-- When your mind wanders, gently bring your attention back to your breath
+**Practice Exercise:** Identify a current interpersonal challenge. Rank the three priorities (objectives, relationship, self-respect) for this situation.
 
-### 2. Body Scan (5-10 minutes)
+## DEAR MAN: Getting What You Want
 
-- Lie down or sit comfortably
-- Bring attention to different parts of your body, starting from your toes and moving up to your head
-- Notice any sensations without trying to change them
+Use these skills when your objective is the priority:
 
-### 3. Mindful Observation (1-3 minutes)
+**D - Describe**
+- Stick to the facts
+- Tell the person exactly what you are reacting to
 
-- Choose an object (like a leaf, stone, or piece of fruit)
-- Observe it as if seeing it for the first time
-- Notice its colors, textures, shapes, and other details
+**E - Express**
+- Express your feelings/opinions clearly
+- Use "I feel" statements
+- Don't assume they know how you feel
 
-### 4. Mindful Listening (2-5 minutes)
+**A - Assert**
+- Clearly ask for what you want or say no directly
+- Don't expect others to read your mind
+- Don't hint or beat around the bush
 
-- Close your eyes
-- Pay attention to the sounds around you
-- Notice near and distant sounds without labeling or judging them
+**R - Reinforce**
+- Explain the positive effects of getting what you want
+- Tell the person the benefits of your request
 
-## Tips for Developing a Regular Practice
+**M - Mindful**
+- Stay focused on your goal
+- Come back to your objective when the conversation strays
+- Be aware of attempts to change the subject
 
-1. **Start small**: Begin with just 1-2 minutes daily
-2. **Be consistent**: Practice at the same time each day
-3. **Use reminders**: Set alarms or link practice to existing habits
-4. **Be patient**: Mindfulness is a skill that develops over time
-5. **Let go of expectations**: There's no "right way" to practice mindfulness
+**A - Appear confident**
+- Use a confident tone and physical manner
+- Make eye contact
+- Don't apologize for making a request
 
-Remember, mindfulness is not about clearing your mind, but rather noticing when your mind wanders and gently bringing it back to the present moment.
+**N - Negotiate**
+- Be willing to give to get
+- Offer alternative solutions
+- Focus on what will work
+
+**Practice Exercise:** Script a DEAR MAN conversation for a request you need to make. Practice it with a friend or in front of a mirror.
+
+## GIVE: Maintaining the Relationship
+
+Use these skills when the relationship is the priority:
+
+**G - Gentle**
+- Be courteous and respectful
+- No attacks, threats, or judgments
+- No sneering or sarcasm
+
+**I - Interested**
+- Listen and appear interested
+- Maintain eye contact
+- Ask questions
+
+**V - Validate**
+- Acknowledge the other person's feelings, wants, and difficulties
+- "I understand that you..."
+- "I see that this is hard for you..."
+
+**E - Easy manner**
+- Use a little humor
+- Smile
+- Be lighthearted
+
+**Practice Exercise:** In your next three conversations, focus on one GIVE skill at a time. Notice how it affects the interaction.
+
+## FAST: Maintaining Self-Respect
+
+Use these skills when self-respect is the priority:
+
+**F - Fair**
+- Be fair to yourself and the other person
+- Don't give in to unreasonable requests
+- Don't make unreasonable requests
+
+**A - Apologies (few)**
+- Don't apologize for making a request
+- Don't apologize for having an opinion
+- Don't apologize for disagreeing
+
+**S - Stick to values**
+- Know what you believe in
+- Don't compromise your values to please others
+- Be clear about what's non-negotiable for you
+
+**T - Truthful**
+- Don't lie or exaggerate
+- Don't act helpless when you're not
+- Don't make excuses
+
+**Practice Exercise:** Identify a situation where you compromised your self-respect. Write a FAST script for how you could handle a similar situation in the future.
+
+## Handling Difficult Conversations
+
+### Saying "No"
+
+1. Be direct: "No, I can't do that."
+2. Offer an alternative if possible
+3. Validate the request: "I understand this is important to you."
+4. Use a broken record technique if needed
+5. Remember, you have the right to say no
+
+### Dealing with Conflict
+
+1. Use GIVE skills to maintain respect
+2. Validate the other person's perspective
+3. Look for the kernel of truth in their position
+4. Focus on common ground and mutual interests
+5. Take a break if emotions escalate
+
+**Practice Exercise:** Identify a boundary you need to set. Write out exactly what you will say, including how you'll respond if the person pushes back.
+
+## Building Healthy Relationships
+
+### Identifying Values in Relationships
+
+1. What qualities do you value in friends/partners?
+2. What behaviors demonstrate these qualities?
+3. Are your relationships aligned with your values?
+
+### Building Positive Interactions
+
+1. Schedule regular time together
+2. Express appreciation frequently
+3. Support each other's goals
+4. Respect boundaries
+5. Address problems when they're small
+
+**Practice Exercise:** Each day for a week, express genuine appreciation to someone in your life. Notice how this affects your relationship.
+
+In our final guide, we'll look at how to integrate all DBT skills into daily life for lasting change.
     `
   },
   {
-    id: "building-emotional-resilience",
-    title: "Building Emotional Resilience: Tools for Facing Life's Challenges",
-    description: "Learn how to develop emotional strength and adaptability to better navigate difficult situations.",
-    category: "resilience",
-    readingTime: 9,
-    views: 7654,
-    author: "Dr. James Wilson",
-    publishDate: "2023-06-05",
+    id: "dbt-integration-daily-life",
+    title: "Integrating DBT Skills into Daily Life",
+    description: "Learn how to combine and apply all DBT skills to create lasting positive change in your everyday experiences.",
+    category: "dbt",
+    readingTime: 6,
+    views: 7890,
+    author: "Dr. Sarah Johnson",
+    publishDate: "2023-10-10",
+    illustrationPath: "/illustrations/mbti.svg",
+    order: 6,
     content: `
-# Building Emotional Resilience
+# Integrating DBT Skills into Daily Life
 
-Emotional resilience is the ability to adapt to stressful situations and cope with life's ups and downs. It's not about avoiding difficulties or powering through emotions, but about finding healthy ways to process and respond to challenges.
+Now that you've learned the core DBT skills—mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness—the next step is to integrate them into your daily life. This integration is what creates lasting positive change.
 
-## Key Components of Emotional Resilience
+## Creating a DBT Lifestyle
 
-### 1. Self-awareness
+### Daily Mindfulness Practice
 
-Understanding your emotions, thoughts, and behaviors is the foundation of resilience.
+Start with a structured daily mindfulness practice:
 
-### 2. Self-regulation
+1. **Morning mindfulness** (5-10 minutes)
+   - Mindful breathing upon waking
+   - Setting intentions for the day
+   - Brief body scan
 
-The ability to manage disruptive emotions and impulses effectively.
+2. **Mindful transitions** throughout the day
+   - Take three mindful breaths between activities
+   - Notice sensations when walking between locations
+   - Pause before responding to messages or emails
 
-### 3. Optimism
+3. **Evening reflection** (5-10 minutes)
+   - Review skillful and unskillful moments from the day
+   - Practice self-compassion for mistakes
+   - Set intentions for tomorrow
 
-Maintaining hope and a positive outlook while still acknowledging difficulties.
+**Practice Exercise:** Commit to one form of mindfulness practice daily for two weeks. Track how it affects your overall awareness and emotional reactions.
 
-### 4. Flexible thinking
+## Building Your DBT Toolkit
 
-Being able to adapt to change and consider different perspectives.
+### Personalized Skill Selection
 
-### 5. Strong relationships
+Not all skills work equally well for everyone. Create your personalized toolkit:
 
-Having supportive connections with others provides a safety net during tough times.
+1. **Identify your most common challenges**
+   - Intense emotions?
+   - Interpersonal conflicts?
+   - Crisis situations?
 
-## Strategies to Build Resilience
+2. **Select 2-3 skills for each challenge**
+   - Which skills have worked best for you?
+   - What fits your personality and lifestyle?
 
-### Practice Self-Compassion
+3. **Make these skills easily accessible**
+   - Create skill reminder cards
+   - Set up phone reminders
+   - Post visual cues in your environment
 
-Treat yourself with the same kindness and understanding you would offer a good friend.
+**Practice Exercise:** Create a "Top 5 DBT Skills" list personalized to your needs. Write them on a card you can carry with you.
 
-### Develop a Growth Mindset
+## Applying Skills in Different Environments
 
-View challenges as opportunities to learn and grow rather than as threats.
+### At Work/School
 
-### Establish Healthy Boundaries
+1. **Use DEAR MAN for requesting accommodations or changes**
+2. **Practice mindfulness before important meetings or exams**
+3. **Use emotion regulation skills to handle criticism constructively**
+4. **Build in mini-breaks for PLEASE skills (hydration, movement)**
 
-Learn to say no and protect your emotional energy.
+### In Relationships
 
-### Create a Resilience Toolbox
+1. **Practice validation with loved ones daily**
+2. **Use mindfulness to stay present in conversations**
+3. **Apply distress tolerance when conflicts arise**
+4. **Balance GIVE skills with FAST to maintain boundaries**
 
-Develop a set of coping skills that work for you, such as:
-- Deep breathing techniques
-- Journaling
-- Physical exercise
-- Creative expression
-- Spending time in nature
+### During Difficult Times
 
-### Cultivate Gratitude
+1. **Create a crisis plan with your most effective skills**
+2. **Identify early warning signs of escalating emotions**
+3. **Have accountability partners who understand your skills**
+4. **Remember radical acceptance for unchangeable circumstances**
 
-Regularly reflect on things you're thankful for, even during difficult times.
+**Practice Exercise:** For each environment (work/school, relationships, difficult times), identify one situation where you can apply a specific DBT skill this week.
 
-### Seek Support When Needed
+## Tracking Progress and Overcoming Obstacles
 
-Reaching out for help is a sign of strength, not weakness.
+### Monitoring Your Growth
 
-Remember, building resilience is an ongoing journey, not a destination. Small daily actions can lead to significant improvements in your ability to navigate life's challenges.
+1. **Keep a skills diary**
+   - Which skills did you use today?
+   - How effective were they?
+   - What could you try differently?
+
+2. **Notice patterns**
+   - Are certain situations consistently challenging?
+   - Are certain skills more effective for you?
+   - Are there times of day when you struggle more?
+
+3. **Celebrate progress**
+   - Acknowledge when you use skills effectively
+   - Notice improvements in your emotional reactions
+   - Recognize relationship improvements
+
+**Practice Exercise:** Create a simple tracking system (app, journal, checklist) to monitor your skill use for two weeks.
+
+### Overcoming Common Obstacles
+
+1. **"I forget to use skills in the moment"**
+   - Create environmental reminders
+   - Practice skills when calm to build muscle memory
+   - Start with just one skill to focus on
+
+2. **"The skills don't work for me"**
+   - Are you practicing them correctly?
+   - Have you given them enough chances?
+   - Have you adapted them to your specific needs?
+
+3. **"I don't have time for skills practice"**
+   - Start with 1-minute practices
+   - Integrate skills into existing routines
+   - Remember that skills save time in the long run
+
+4. **"I feel silly or awkward using the skills"**
+   - Practice in private until comfortable
+   - Remind yourself of the benefits
+   - Adapt the language to feel more natural
+
+**Practice Exercise:** Identify your biggest obstacle to using DBT skills. Create a specific plan to address it this week.
+
+## Creating Lasting Change
+
+The ultimate goal of DBT is not just to learn skills but to transform your relationship with yourself, others, and the world. This transformation happens through:
+
+1. **Consistent practice**
+   - Skills become more automatic with repetition
+   - Small daily practices lead to significant change
+   - Patience with the process is essential
+
+2. **Self-compassion**
+   - Learning is not linear
+   - Setbacks are part of growth
+   - Each moment offers a fresh start
+
+3. **Community**
+   - Connect with others learning DBT
+   - Share successes and challenges
+   - Learn from others' experiences
+
+Remember, DBT is not about perfection but about building a life worth living—one mindful moment, one effective interaction, and one wise decision at a time.
+
+**Practice Exercise:** Write a letter to your future self about the life you hope to create through practicing DBT skills. Keep it somewhere you can revisit when you need motivation.
+
+Congratulations on completing this DBT skills introduction course! You now have powerful tools to navigate life's challenges with greater wisdom, balance, and effectiveness.
     `
   }
 ];
