@@ -1,8 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -80,17 +78,15 @@ const GuidePage = () => {
   
   if (!currentGuide) {
     return (
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <div className="container mx-auto px-4 py-16 flex-1 text-center">
+      <PageLayout>
+        <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold mb-4">Guide not found</h1>
           <p className="mb-8">The guide you're looking for doesn't exist or has been moved.</p>
           <Button asChild>
             <Link to="/guides">Return to Guides</Link>
           </Button>
         </div>
-        <Footer />
-      </div>
+      </PageLayout>
     );
   }
   
@@ -208,9 +204,8 @@ const GuidePage = () => {
   };
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <div className="container mx-auto px-4 py-6 flex-1">
+    <PageLayout>
+      <div className="container mx-auto px-4 py-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-6">
             <Button variant="ghost" size="sm" asChild className="mb-4">
@@ -406,8 +401,7 @@ const GuidePage = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

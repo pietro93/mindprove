@@ -6,8 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { PageLayout } from "@/components/layout/PageLayout";
 import { toast } from "@/hooks/use-toast";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -54,9 +53,8 @@ const LoginPage = () => {
   };
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <div className="flex-1 flex items-center justify-center p-4">
+    <PageLayout>
+      <div className="flex items-center justify-center p-4 py-8">
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold">Sign in to MindProve</CardTitle>
@@ -148,8 +146,7 @@ const LoginPage = () => {
           </CardFooter>
         </Card>
       </div>
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

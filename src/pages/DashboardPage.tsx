@@ -1,10 +1,8 @@
-
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { PageLayout } from "@/components/layout/PageLayout";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Line } from "recharts";
@@ -58,9 +56,8 @@ const DashboardPage = () => {
   ];
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <div className="container mx-auto px-4 py-8 flex-1">
+    <PageLayout>
+      <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold">Dashboard</h1>
@@ -249,8 +246,7 @@ const DashboardPage = () => {
           </TabsContent>
         </Tabs>
       </div>
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

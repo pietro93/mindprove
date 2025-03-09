@@ -1,14 +1,12 @@
 
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { PageLayout } from "@/components/layout/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <div className="container mx-auto px-4 py-8 flex-1">
+    <PageLayout>
+      <div className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold">About MindProve</h1>
@@ -144,8 +142,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
