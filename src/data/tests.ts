@@ -10,7 +10,7 @@ export const tests: Test[] = [
     tags: ["anxiety", "stress", "mental-health"],
     timeMinutes: 10,
     completions: 15872,
-    illustration: "/illustrations/anxiety.svg",
+    illustration: "/illustrations/anxiety.webp",
     questions: [
       {
         id: "q1",
