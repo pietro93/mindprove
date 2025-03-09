@@ -16,11 +16,15 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 flex">
-        <div className={`flex-1 w-full ${!isHomePage ? "lg:mr-[300px]" : ""}`}>
+      <div className="flex-1 flex flex-row relative">
+        <main className="flex-1 w-full">
           {children}
-        </div>
-        {!isHomePage && <Sidebar />}
+        </main>
+        {!isHomePage && (
+          <aside className="hidden lg:block w-[300px] fixed right-0 top-[60px] bottom-0 border-l border-border overflow-y-auto">
+            <Sidebar />
+          </aside>
+        )}
       </div>
       <Footer />
     </div>

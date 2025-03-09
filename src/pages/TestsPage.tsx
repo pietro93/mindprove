@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { TestCard } from "@/components/tests/TestCard";
@@ -26,9 +27,9 @@ const TestsPage = () => {
   
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-8">
+      <div className="w-full py-8 px-4 md:px-6 lg:pr-[320px]">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="mb-8">
             <h1 className="text-3xl font-bold">Mental Health & Personality Tests</h1>
             <p className="text-gray-500 mt-2">
               Explore our collection of scientifically-backed assessments
@@ -47,47 +48,49 @@ const TestsPage = () => {
             </div>
           </div>
           
-          <div className="mb-4">
-            <h2 className="text-lg font-medium mb-2">Categories</h2>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Button
-                variant={selectedCategory === null ? "default" : "outline"}
-                onClick={() => setSelectedCategory(null)}
-                size="sm"
-              >
-                All
-              </Button>
-              {categories.map(category => (
+          <div className="flex flex-wrap gap-4 mb-8">
+            <div className="w-full md:w-auto">
+              <h2 className="text-lg font-medium mb-2">Categories</h2>
+              <div className="flex flex-wrap gap-2 mb-4">
                 <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category)}
+                  variant={selectedCategory === null ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(null)}
                   size="sm"
                 >
-                  {category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')}
+                  All
                 </Button>
-              ))}
+                {categories.map(category => (
+                  <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                    size="sm"
+                  >
+                    {category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')}
+                  </Button>
+                ))}
+              </div>
             </div>
-          </div>
-          
-          <div className="mb-8">
-            <h2 className="text-lg font-medium mb-2">Popular Tags</h2>
-            <div className="flex flex-wrap gap-2">
-              {tags.map(tag => (
-                <Badge 
-                  key={tag}
-                  variant={selectedTag === tag ? "default" : "outline"} 
-                  className="cursor-pointer"
-                  onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
-                >
-                  {tag}
-                </Badge>
-              ))}
+            
+            <div className="w-full md:w-auto">
+              <h2 className="text-lg font-medium mb-2">Popular Tags</h2>
+              <div className="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                  <Badge 
+                    key={tag}
+                    variant={selectedTag === tag ? "default" : "outline"} 
+                    className="cursor-pointer"
+                    onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
             </div>
           </div>
           
           {filteredTests.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredTests.map(test => (
                 <TestCard key={test.id} test={test} />
               ))}
