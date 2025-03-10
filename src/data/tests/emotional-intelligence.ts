@@ -4,133 +4,193 @@ import { Test } from "@/types/test";
 export const emotionalIntelligenceTest: Test = {
   id: "emotional-intelligence",
   title: "Emotional Intelligence Test",
-  shortDescription: "Understand how well you recognize and handle emotions",
-  fullDescription: "Discover your emotional intelligence level and learn how well you understand and manage both your own emotions and those of others.",
+  shortDescription: "Assess your ability to recognize and manage emotions",
+  fullDescription: "This test measures your emotional intelligence - the ability to identify and manage your own emotions and understand the emotions of others. You'll receive insights about your emotional awareness, empathy, and social skills.",
   category: "psychology",
-  tags: ["emotions", "self-awareness", "relationships"],
-  timeMinutes: 8,
-  completions: 7126,
+  tags: ["emotions", "self-awareness", "empathy", "social-skills"],
+  timeMinutes: 10,
+  completions: 8423,
   illustration: "/illustrations/emotional.svg",
   questions: [
     {
       id: "q1",
-      text: "I can easily identify how I'm feeling in different situations",
+      text: "I can recognize my emotions as I experience them",
       type: "likert",
       options: [
-        { id: "q1-a1", text: "Not at all like me", value: 1 },
-        { id: "q1-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q1-a3", text: "Neutral", value: 3 },
-        { id: "q1-a4", text: "Somewhat like me", value: 4 },
-        { id: "q1-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q1-a1", text: "Rarely", value: 1 },
+        { id: "q1-a2", text: "Sometimes", value: 2 },
+        { id: "q1-a3", text: "Often", value: 3 },
+        { id: "q1-a4", text: "Very Often", value: 4 },
+        { id: "q1-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q2",
-      text: "I notice how others are feeling by their tone of voice and body language",
+      text: "I find it easy to understand why people feel the way they do",
       type: "likert",
       options: [
-        { id: "q2-a1", text: "Not at all like me", value: 1 },
-        { id: "q2-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q2-a3", text: "Neutral", value: 3 },
-        { id: "q2-a4", text: "Somewhat like me", value: 4 },
-        { id: "q2-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q2-a1", text: "Rarely", value: 1 },
+        { id: "q2-a2", text: "Sometimes", value: 2 },
+        { id: "q2-a3", text: "Often", value: 3 },
+        { id: "q2-a4", text: "Very Often", value: 4 },
+        { id: "q2-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q3",
-      text: "I stay calm under pressure",
+      text: "I can stay calm even in difficult situations",
       type: "likert",
       options: [
-        { id: "q3-a1", text: "Not at all like me", value: 1 },
-        { id: "q3-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q3-a3", text: "Neutral", value: 3 },
-        { id: "q3-a4", text: "Somewhat like me", value: 4 },
-        { id: "q3-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q3-a1", text: "Rarely", value: 1 },
+        { id: "q3-a2", text: "Sometimes", value: 2 },
+        { id: "q3-a3", text: "Often", value: 3 },
+        { id: "q3-a4", text: "Very Often", value: 4 },
+        { id: "q3-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q4",
-      text: "I can bounce back quickly after setbacks",
+      text: "I know my strengths and weaknesses",
       type: "likert",
       options: [
-        { id: "q4-a1", text: "Not at all like me", value: 1 },
-        { id: "q4-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q4-a3", text: "Neutral", value: 3 },
-        { id: "q4-a4", text: "Somewhat like me", value: 4 },
-        { id: "q4-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q4-a1", text: "Rarely", value: 1 },
+        { id: "q4-a2", text: "Sometimes", value: 2 },
+        { id: "q4-a3", text: "Often", value: 3 },
+        { id: "q4-a4", text: "Very Often", value: 4 },
+        { id: "q4-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q5",
-      text: "I'm good at handling disagreements with others",
+      text: "I'm good at reading people's expressions to understand their emotions",
       type: "likert",
       options: [
-        { id: "q5-a1", text: "Not at all like me", value: 1 },
-        { id: "q5-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q5-a3", text: "Neutral", value: 3 },
-        { id: "q5-a4", text: "Somewhat like me", value: 4 },
-        { id: "q5-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q5-a1", text: "Rarely", value: 1 },
+        { id: "q5-a2", text: "Sometimes", value: 2 },
+        { id: "q5-a3", text: "Often", value: 3 },
+        { id: "q5-a4", text: "Very Often", value: 4 },
+        { id: "q5-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q6",
-      text: "I can adapt my communication style based on who I'm talking to",
+      text: "I can control my emotions when I need to",
       type: "likert",
       options: [
-        { id: "q6-a1", text: "Not at all like me", value: 1 },
-        { id: "q6-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q6-a3", text: "Neutral", value: 3 },
-        { id: "q6-a4", text: "Somewhat like me", value: 4 },
-        { id: "q6-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q6-a1", text: "Rarely", value: 1 },
+        { id: "q6-a2", text: "Sometimes", value: 2 },
+        { id: "q6-a3", text: "Often", value: 3 },
+        { id: "q6-a4", text: "Very Often", value: 4 },
+        { id: "q6-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q7",
-      text: "I'm aware of how my moods affect others",
+      text: "I can tell how people are feeling just by listening to their tone of voice",
       type: "likert",
       options: [
-        { id: "q7-a1", text: "Not at all like me", value: 1 },
-        { id: "q7-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q7-a3", text: "Neutral", value: 3 },
-        { id: "q7-a4", text: "Somewhat like me", value: 4 },
-        { id: "q7-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q7-a1", text: "Rarely", value: 1 },
+        { id: "q7-a2", text: "Sometimes", value: 2 },
+        { id: "q7-a3", text: "Often", value: 3 },
+        { id: "q7-a4", text: "Very Often", value: 4 },
+        { id: "q7-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q8",
-      text: "I can motivate myself to get things done",
+      text: "I consider the impact of my actions on others' feelings",
       type: "likert",
       options: [
-        { id: "q8-a1", text: "Not at all like me", value: 1 },
-        { id: "q8-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q8-a3", text: "Neutral", value: 3 },
-        { id: "q8-a4", text: "Somewhat like me", value: 4 },
-        { id: "q8-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q8-a1", text: "Rarely", value: 1 },
+        { id: "q8-a2", text: "Sometimes", value: 2 },
+        { id: "q8-a3", text: "Often", value: 3 },
+        { id: "q8-a4", text: "Very Often", value: 4 },
+        { id: "q8-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q9",
-      text: "I can read the room in social situations",
+      text: "I'm able to help others calm down when they're upset",
       type: "likert",
       options: [
-        { id: "q9-a1", text: "Not at all like me", value: 1 },
-        { id: "q9-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q9-a3", text: "Neutral", value: 3 },
-        { id: "q9-a4", text: "Somewhat like me", value: 4 },
-        { id: "q9-a5", text: "Very much like me", value: 5 }
-      ]
+        { id: "q9-a1", text: "Rarely", value: 1 },
+        { id: "q9-a2", text: "Sometimes", value: 2 },
+        { id: "q9-a3", text: "Often", value: 3 },
+        { id: "q9-a4", text: "Very Often", value: 4 },
+        { id: "q9-a5", text: "Almost Always", value: 5 },
+      ],
     },
     {
       id: "q10",
-      text: "I'm good at helping others feel better when they're down",
+      text: "I can bounce back quickly after disappointments",
       type: "likert",
       options: [
-        { id: "q10-a1", text: "Not at all like me", value: 1 },
-        { id: "q10-a2", text: "Somewhat unlike me", value: 2 },
-        { id: "q10-a3", text: "Neutral", value: 3 },
-        { id: "q10-a4", text: "Somewhat like me", value: 4 },
-        { id: "q10-a5", text: "Very much like me", value: 5 }
-      ]
-    }
-  ]
+        { id: "q10-a1", text: "Rarely", value: 1 },
+        { id: "q10-a2", text: "Sometimes", value: 2 },
+        { id: "q10-a3", text: "Often", value: 3 },
+        { id: "q10-a4", text: "Very Often", value: 4 },
+        { id: "q10-a5", text: "Almost Always", value: 5 },
+      ],
+    },
+    {
+      id: "q11",
+      text: "I notice when others need help or support even if they don't ask",
+      type: "likert",
+      options: [
+        { id: "q11-a1", text: "Rarely", value: 1 },
+        { id: "q11-a2", text: "Sometimes", value: 2 },
+        { id: "q11-a3", text: "Often", value: 3 },
+        { id: "q11-a4", text: "Very Often", value: 4 },
+        { id: "q11-a5", text: "Almost Always", value: 5 },
+      ],
+    },
+    {
+      id: "q12",
+      text: "I'm aware of how my mood affects my thinking and behavior",
+      type: "likert",
+      options: [
+        { id: "q12-a1", text: "Rarely", value: 1 },
+        { id: "q12-a2", text: "Sometimes", value: 2 },
+        { id: "q12-a3", text: "Often", value: 3 },
+        { id: "q12-a4", text: "Very Often", value: 4 },
+        { id: "q12-a5", text: "Almost Always", value: 5 },
+      ],
+    },
+    {
+      id: "q13",
+      text: "I can listen without jumping in to give advice",
+      type: "likert",
+      options: [
+        { id: "q13-a1", text: "Rarely", value: 1 },
+        { id: "q13-a2", text: "Sometimes", value: 2 },
+        { id: "q13-a3", text: "Often", value: 3 },
+        { id: "q13-a4", text: "Very Often", value: 4 },
+        { id: "q13-a5", text: "Almost Always", value: 5 },
+      ],
+    },
+    {
+      id: "q14",
+      text: "I can manage multiple demands without becoming overwhelmed",
+      type: "likert",
+      options: [
+        { id: "q14-a1", text: "Rarely", value: 1 },
+        { id: "q14-a2", text: "Sometimes", value: 2 },
+        { id: "q14-a3", text: "Often", value: 3 },
+        { id: "q14-a4", text: "Very Often", value: 4 },
+        { id: "q14-a5", text: "Almost Always", value: 5 },
+      ],
+    },
+    {
+      id: "q15",
+      text: "I can see things from another person's perspective",
+      type: "likert",
+      options: [
+        { id: "q15-a1", text: "Rarely", value: 1 },
+        { id: "q15-a2", text: "Sometimes", value: 2 },
+        { id: "q15-a3", text: "Often", value: 3 },
+        { id: "q15-a4", text: "Very Often", value: 4 },
+        { id: "q15-a5", text: "Almost Always", value: 5 },
+      ],
+    },
+  ],
 };

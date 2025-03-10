@@ -4,193 +4,193 @@ import { Test } from "@/types/test";
 export const mbtiTest: Test = {
   id: "mbti-personality",
   title: "MBTI Personality Test",
-  shortDescription: "Discover your personality type based on the Myers-Briggs framework",
-  fullDescription: "Learn about your preferences for extraversion or introversion, sensing or intuition, thinking or feeling, and judging or perceiving with this personality assessment.",
+  shortDescription: "Discover your four-letter personality type based on the Myers-Briggs Type Indicator",
+  fullDescription: "The MBTI (Myers-Briggs Type Indicator) assessment identifies your psychological preferences in how you perceive the world and make decisions. This simplified version will help you discover which of the 16 personality types best matches your natural way of thinking and behaving.",
   category: "personality",
-  tags: ["personality", "psychology", "mbti"],
+  tags: ["personality", "psychology", "self-awareness", "Myers-Briggs"],
   timeMinutes: 15,
-  completions: 18429,
+  completions: 18543,
   illustration: "/illustrations/mbti.svg",
   questions: [
     {
       id: "q1",
-      text: "At a party, you usually...",
-      type: "multiple-choice",
+      text: "At social events, you typically:",
+      type: "likert",
       options: [
-        { id: "q1-a1", text: "Interact with many, including strangers", value: 1 },
-        { id: "q1-a2", text: "Interact with a few people you know", value: 2 }
-      ]
+        { id: "q1-a1", text: "Talk to many different people, including strangers", value: 1 },
+        { id: "q1-a2", text: "Mostly talk to people you already know", value: 5 },
+      ],
     },
     {
       id: "q2",
-      text: "You tend to focus on...",
-      type: "multiple-choice",
+      text: "You prefer to focus on:",
+      type: "likert",
       options: [
-        { id: "q2-a1", text: "Possibilities and what might be", value: 1 },
-        { id: "q2-a2", text: "Realities and what actually exists", value: 2 }
-      ]
+        { id: "q2-a1", text: "Concrete facts and observable details", value: 1 },
+        { id: "q2-a2", text: "Possibilities, patterns, and what could be", value: 5 },
+      ],
     },
     {
       id: "q3",
-      text: "When making decisions, you usually prefer...",
-      type: "multiple-choice",
+      text: "When making decisions, you typically:",
+      type: "likert",
       options: [
-        { id: "q3-a1", text: "Using logic and objective analysis", value: 1 },
-        { id: "q3-a2", text: "Considering people and special circumstances", value: 2 }
-      ]
+        { id: "q3-a1", text: "Consider logic and consistency above all", value: 1 },
+        { id: "q3-a2", text: "Consider people's feelings and circumstances", value: 5 },
+      ],
     },
     {
       id: "q4",
-      text: "In your daily life, you tend to...",
-      type: "multiple-choice",
+      text: "You tend to:",
+      type: "likert",
       options: [
-        { id: "q4-a1", text: "Plan ahead and be well-organized", value: 1 },
-        { id: "q4-a2", text: "Be flexible and spontaneous", value: 2 }
-      ]
+        { id: "q4-a1", text: "Make plans and stick to them", value: 1 },
+        { id: "q4-a2", text: "Stay flexible and adapt to situations", value: 5 },
+      ],
     },
     {
       id: "q5",
-      text: "You feel more energized by...",
-      type: "multiple-choice",
+      text: "After spending time with many people, you often feel:",
+      type: "likert",
       options: [
-        { id: "q5-a1", text: "Being around others and socializing", value: 1 },
-        { id: "q5-a2", text: "Spending time alone or with a few close friends", value: 2 }
-      ]
+        { id: "q5-a1", text: "Energized and want more interaction", value: 1 },
+        { id: "q5-a2", text: "Drained and need alone time", value: 5 },
+      ],
     },
     {
       id: "q6",
-      text: "You prefer to focus on...",
-      type: "multiple-choice",
+      text: "You are more interested in:",
+      type: "likert",
       options: [
-        { id: "q6-a1", text: "The big picture and connections between ideas", value: 1 },
-        { id: "q6-a2", text: "Details and specific facts", value: 2 }
-      ]
+        { id: "q6-a1", text: "What is real and actual", value: 1 },
+        { id: "q6-a2", text: "What could be possible", value: 5 },
+      ],
     },
     {
       id: "q7",
-      text: "When evaluating a situation, you rely more on...",
-      type: "multiple-choice",
+      text: "You find it more natural to:",
+      type: "likert",
       options: [
-        { id: "q7-a1", text: "Objective principles and logical reasoning", value: 1 },
-        { id: "q7-a2", text: "Personal values and how others will be affected", value: 2 }
-      ]
+        { id: "q7-a1", text: "Be objective when evaluating situations", value: 1 },
+        { id: "q7-a2", text: "Consider how situations affect people", value: 5 },
+      ],
     },
     {
       id: "q8",
-      text: "You prefer...",
-      type: "multiple-choice",
+      text: "You prefer:",
+      type: "likert",
       options: [
-        { id: "q8-a1", text: "Having a plan and sticking to it", value: 1 },
-        { id: "q8-a2", text: "Adapting as you go", value: 2 }
-      ]
+        { id: "q8-a1", text: "Having things decided and settled", value: 1 },
+        { id: "q8-a2", text: "Keeping options open", value: 5 },
+      ],
     },
     {
       id: "q9",
-      text: "Your typical mode is being...",
-      type: "multiple-choice",
+      text: "At parties, you generally:",
+      type: "likert",
       options: [
-        { id: "q9-a1", text: "Outgoing and receiving energy from external activities", value: 1 },
-        { id: "q9-a2", text: "Reserved and receiving energy from within", value: 2 }
-      ]
+        { id: "q9-a1", text: "Stay late, gaining energy as you go", value: 1 },
+        { id: "q9-a2", text: "Leave early, with decreased energy", value: 5 },
+      ],
     },
     {
       id: "q10",
-      text: "You are more interested in...",
-      type: "multiple-choice",
+      text: "You are more drawn to:",
+      type: "likert",
       options: [
-        { id: "q10-a1", text: "What is possible and theoretical", value: 1 },
-        { id: "q10-a2", text: "What is actual and real", value: 2 }
-      ]
+        { id: "q10-a1", text: "Practical skills", value: 1 },
+        { id: "q10-a2", text: "Abstract ideas", value: 5 },
+      ],
     },
     {
       id: "q11",
-      text: "When making a tough choice, you usually...",
-      type: "multiple-choice",
+      text: "You value more highly:",
+      type: "likert",
       options: [
-        { id: "q11-a1", text: "Make decisions based on facts and logical analysis", value: 1 },
-        { id: "q11-a2", text: "Consider the impact on people involved", value: 2 }
-      ]
+        { id: "q11-a1", text: "Clarity and rational thinking", value: 1 },
+        { id: "q11-a2", text: "Harmony and compassion", value: 5 },
+      ],
     },
     {
       id: "q12",
-      text: "In your work style, you prefer to...",
-      type: "multiple-choice",
+      text: "When working on a project, you prefer to:",
+      type: "likert",
       options: [
-        { id: "q12-a1", text: "Work in an organized, structured way", value: 1 },
-        { id: "q12-a2", text: "Work in a flexible, adaptive way", value: 2 }
-      ]
+        { id: "q12-a1", text: "Follow a plan with clear milestones", value: 1 },
+        { id: "q12-a2", text: "Adapt and change course as needed", value: 5 },
+      ],
     },
     {
       id: "q13",
-      text: "At a social event, you typically...",
-      type: "multiple-choice",
+      text: "You find small talk:",
+      type: "likert",
       options: [
-        { id: "q13-a1", text: "Stay late, gaining energy as you interact", value: 1 },
-        { id: "q13-a2", text: "Leave early, feeling drained from interaction", value: 2 }
-      ]
+        { id: "q13-a1", text: "Enjoyable and easy", value: 1 },
+        { id: "q13-a2", text: "Difficult or tiresome", value: 5 },
+      ],
     },
     {
       id: "q14",
-      text: "You are more likely to trust...",
-      type: "multiple-choice",
+      text: "You tend to focus more on:",
+      type: "likert",
       options: [
-        { id: "q14-a1", text: "Your imagination and innovation", value: 1 },
-        { id: "q14-a2", text: "Your experience and observations", value: 2 }
-      ]
+        { id: "q14-a1", text: "Details and facts", value: 1 },
+        { id: "q14-a2", text: "The big picture", value: 5 },
+      ],
     },
     {
       id: "q15",
-      text: "You find it easier to...",
-      type: "multiple-choice",
+      text: "In conflicts, you're more concerned with:",
+      type: "likert",
       options: [
-        { id: "q15-a1", text: "See the flaws in an argument", value: 1 },
-        { id: "q15-a2", text: "Understand how people feel", value: 2 }
-      ]
+        { id: "q15-a1", text: "Finding the most logical solution", value: 1 },
+        { id: "q15-a2", text: "Making sure everyone feels heard", value: 5 },
+      ],
     },
     {
       id: "q16",
-      text: "You prefer situations that are...",
-      type: "multiple-choice",
+      text: "Your workspace is usually:",
+      type: "likert",
       options: [
-        { id: "q16-a1", text: "Structured and scheduled", value: 1 },
-        { id: "q16-a2", text: "Open-ended and spontaneous", value: 2 }
-      ]
+        { id: "q16-a1", text: "Organized and structured", value: 1 },
+        { id: "q16-a2", text: "Flexible with some disorder", value: 5 },
+      ],
     },
     {
       id: "q17",
-      text: "You prefer to...",
-      type: "multiple-choice",
+      text: "You prefer to:",
+      type: "likert",
       options: [
-        { id: "q17-a1", text: "Think out loud and talk through your ideas", value: 1 },
-        { id: "q17-a2", text: "Think things through quietly before speaking", value: 2 }
-      ]
+        { id: "q17-a1", text: "Speak up and share thoughts in groups", value: 1 },
+        { id: "q17-a2", text: "Process thoughts internally first", value: 5 },
+      ],
     },
     {
       id: "q18",
-      text: "When reading, you prefer material that...",
-      type: "multiple-choice",
+      text: "You're more likely to trust:",
+      type: "likert",
       options: [
-        { id: "q18-a1", text: "Is imaginative and theoretical", value: 1 },
-        { id: "q18-a2", text: "Is practical and factual", value: 2 }
-      ]
+        { id: "q18-a1", text: "Your direct experience and observation", value: 1 },
+        { id: "q18-a2", text: "Your intuition about what feels right", value: 5 },
+      ],
     },
     {
       id: "q19",
-      text: "You find it more natural to...",
-      type: "multiple-choice",
+      text: "When evaluating an idea, you first consider:",
+      type: "likert",
       options: [
-        { id: "q19-a1", text: "Be objective when making decisions", value: 1 },
-        { id: "q19-a2", text: "Be empathetic when making decisions", value: 2 }
-      ]
+        { id: "q19-a1", text: "If it makes logical sense", value: 1 },
+        { id: "q19-a2", text: "How it will affect people", value: 5 },
+      ],
     },
     {
       id: "q20",
-      text: "You prefer environments that are...",
-      type: "multiple-choice",
+      text: "You prefer to work:",
+      type: "likert",
       options: [
-        { id: "q20-a1", text: "Planned and orderly", value: 1 },
-        { id: "q20-a2", text: "Casual and unstructured", value: 2 }
-      ]
-    }
-  ]
+        { id: "q20-a1", text: "According to a schedule with clear deadlines", value: 1 },
+        { id: "q20-a2", text: "In a flexible environment with room to adapt", value: 5 },
+      ],
+    },
+  ],
 };
