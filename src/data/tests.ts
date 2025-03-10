@@ -1,3 +1,4 @@
+
 import { Test } from "@/types/test";
 
 export const tests: Test[] = [
@@ -909,3 +910,6 @@ export const tests: Test[] = [
     ],
   }
 ];
+
+// Export a subset of tests as popular tests
+export const popularTests = tests.slice(0, 3);

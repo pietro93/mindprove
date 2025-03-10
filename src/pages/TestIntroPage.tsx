@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { tests } from "@/data/tests";
-import { Clock, User, ArrowRight, Tag, InfoCircle } from "lucide-react";
+import { Clock, User, ArrowRight, Tag, Info } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const TestIntroPage = () => {
@@ -85,7 +85,7 @@ const TestIntroPage = () => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <InfoCircle className="h-5 w-5 mr-2" />
+                <Info className="h-5 w-5 mr-2" />
                 About This Test
               </CardTitle>
             </CardHeader>
