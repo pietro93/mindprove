@@ -12,6 +12,7 @@ import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
+import TestIntroPage from "./pages/TestIntroPage";
 import TestPage from "./pages/TestPage";
 import ResultPage from "./pages/ResultPage";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/test-intro/:id" element={<TestIntroPage />} />
           <Route path="/test/:id" element={<TestPage />} />
           <Route path="/result/:id" element={<ResultPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

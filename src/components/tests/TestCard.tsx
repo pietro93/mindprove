@@ -53,7 +53,7 @@ export const TestCard = ({ test }: TestCardProps) => {
       </CardContent>
       <CardFooter className="pt-0">
         <Button asChild className="w-full">
-          <Link to={`/test/${test.id}`}>Take Test</Link>
+          <Link to={`/test-intro/${test.id}`}>Take Test</Link>
         </Button>
       </CardFooter>
     </Card>
