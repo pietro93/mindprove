@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +10,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { tests } from "@/data/tests";
 import { toast } from "@/hooks/use-toast";
-import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TestPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,39 +21,6 @@ const TestPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
-
-  // Set up timer if test has a time limit
-  useEffect(() => {
-    if (test) {
-      setTimeRemaining(test.timeMinutes * 60); // Convert minutes to seconds
-    }
-  }, [test]);
-
-  // Timer countdown
-  useEffect(() => {
-    if (!timeRemaining) return;
-    
-    const timer = setInterval(() => {
-      setTimeRemaining(prev => {
-        if (!prev || prev <= 0) {
-          clearInterval(timer);
-          // Auto-submit when time expires
-          if (!loading) {
-            toast({
-              title: "Time's up!",
-              description: "Your test has been automatically submitted.",
-            });
-            handleSubmit();
-          }
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    
-    return () => clearInterval(timer);
-  }, [timeRemaining, loading]);
 
   if (!test) {
     return (
@@ -78,13 +46,6 @@ const TestPage = () => {
 
   const currentQuestion = test.questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / test.questions.length) * 100;
-
-  // Format remaining time as MM:SS
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  };
 
   const handleOptionSelect = (value: string) => {
     setAnswers({ ...answers, [currentQuestion.id]: value });
@@ -135,20 +96,14 @@ const TestPage = () => {
       <Header />
       <div className="flex-1 container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
-          <div className="mb-8">
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
             <h1 className="text-2xl font-bold">{test.title}</h1>
-            <div className="flex items-center justify-between mt-2">
-              <div className="flex items-center text-sm text-gray-500">
-                <Clock className="h-4 w-4 mr-1" />
-                <span>{test.timeMinutes} minutes</span>
-              </div>
-              {timeRemaining !== null && (
-                <div className="text-sm font-medium">
-                  Time remaining: {formatTime(timeRemaining)}
-                </div>
-              )}
-            </div>
-          </div>
+          </motion.div>
 
           <div className="mb-6">
             <div className="flex justify-between text-sm mb-2">
@@ -158,55 +113,75 @@ const TestPage = () => {
             <Progress value={progress} className="h-2" />
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl">{currentQuestion.text}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <RadioGroup 
-                value={answers[currentQuestion.id]} 
-                onValueChange={handleOptionSelect}
-              >
-                {currentQuestion.options.map((option) => (
-                  <div key={option.id} className="flex items-center space-x-2 py-2">
-                    <RadioGroupItem value={option.id} id={option.id} />
-                    <Label htmlFor={option.id}>{option.text}</Label>
-                  </div>
-                ))}
-              </RadioGroup>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Button 
-                variant="outline" 
-                onClick={handlePrevious}
-                disabled={currentQuestionIndex === 0}
-              >
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                Previous
-              </Button>
-              <Button 
-                onClick={handleNext}
-                disabled={loading}
-              >
-                {isLastQuestion ? (loading ? "Processing..." : "Submit") : (
-                  <>
-                    Next
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </CardFooter>
-          </Card>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuestionIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="mb-6">
+                <CardHeader>
+                  <CardTitle className="text-xl">{currentQuestion.text}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <RadioGroup 
+                    value={answers[currentQuestion.id]} 
+                    onValueChange={handleOptionSelect}
+                  >
+                    {currentQuestion.options.map((option) => (
+                      <motion.div 
+                        key={option.id} 
+                        className="flex items-center space-x-2 py-3 px-2 rounded-md hover:bg-secondary/50 cursor-pointer transition-colors"
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                      >
+                        <RadioGroupItem value={option.id} id={option.id} />
+                        <Label htmlFor={option.id} className="flex-1 cursor-pointer">{option.text}</Label>
+                      </motion.div>
+                    ))}
+                  </RadioGroup>
+                </CardContent>
+                <CardFooter className="flex justify-between">
+                  <Button 
+                    variant="outline" 
+                    onClick={handlePrevious}
+                    disabled={currentQuestionIndex === 0}
+                  >
+                    <ChevronLeft className="mr-2 h-4 w-4" />
+                    Previous
+                  </Button>
+                  <Button 
+                    onClick={handleNext}
+                    disabled={loading}
+                  >
+                    {isLastQuestion ? (loading ? "Processing..." : "Submit") : (
+                      <>
+                        Next
+                        <ChevronRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Question indicators */}
-          <div className="mt-6">
+          <motion.div 
+            className="mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
             <h3 className="text-sm font-medium mb-2">Questions</h3>
             <div className="flex flex-wrap gap-2">
               {test.questions.map((_, index) => (
                 <Button
                   key={index}
                   variant={index === currentQuestionIndex ? "default" : answers[test.questions[index].id] ? "outline" : "secondary"}
-                  className="w-8 h-8 p-0"
+                  className={`w-8 h-8 p-0 transition-all ${index === currentQuestionIndex ? 'scale-110' : ''}`}
                   onClick={() => {
                     if (answers[currentQuestion.id] || currentQuestionIndex === index) {
                       setCurrentQuestionIndex(index);
@@ -223,7 +198,7 @@ const TestPage = () => {
                 </Button>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <Footer />
