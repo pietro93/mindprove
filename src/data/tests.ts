@@ -1,4 +1,3 @@
-<lov-code>
 import { Test } from "@/types/test";
 
 export const tests: Test[] = [
@@ -253,6 +252,94 @@ export const tests: Test[] = [
           { id: "q22-a2", text: "A few days", value: 1 },
           { id: "q22-a3", text: "More than half the days", value: 2 },
           { id: "q22-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q23",
+        text: "In the past week, how often have you found it difficult to concentrate on daily tasks due to anxious thoughts?",
+        type: "likert",
+        options: [
+          { id: "q23-a1", text: "Not at all", value: 0 },
+          { id: "q23-a2", text: "A few days", value: 1 },
+          { id: "q23-a3", text: "More than half the days", value: 2 },
+          { id: "q23-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q24",
+        text: "In the past week, how often have you felt physical tension or tightness in your muscles?",
+        type: "likert",
+        options: [
+          { id: "q24-a1", text: "Not at all", value: 0 },
+          { id: "q24-a2", text: "A few days", value: 1 },
+          { id: "q24-a3", text: "More than half the days", value: 2 },
+          { id: "q24-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q25",
+        text: "In the past week, how often have you felt that your anxiety was out of proportion to the actual danger or threat?",
+        type: "likert",
+        options: [
+          { id: "q25-a1", text: "Not at all", value: 0 },
+          { id: "q25-a2", text: "A few days", value: 1 },
+          { id: "q25-a3", text: "More than half the days", value: 2 },
+          { id: "q25-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q26",
+        text: "In the past week, how often have you noticed physical symptoms like stomach discomfort or nausea related to anxiety?",
+        type: "likert",
+        options: [
+          { id: "q26-a1", text: "Not at all", value: 0 },
+          { id: "q26-a2", text: "A few days", value: 1 },
+          { id: "q26-a3", text: "More than half the days", value: 2 },
+          { id: "q26-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q27",
+        text: "In the past week, how often have you experienced intrusive thoughts that caused you anxiety?",
+        type: "likert",
+        options: [
+          { id: "q27-a1", text: "Not at all", value: 0 },
+          { id: "q27-a2", text: "A few days", value: 1 },
+          { id: "q27-a3", text: "More than half the days", value: 2 },
+          { id: "q27-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q28",
+        text: "In the past week, how often have you felt a sense of derealization (feeling as if the world around you is not real)?",
+        type: "likert",
+        options: [
+          { id: "q28-a1", text: "Not at all", value: 0 },
+          { id: "q28-a2", text: "A few days", value: 1 },
+          { id: "q28-a3", text: "More than half the days", value: 2 },
+          { id: "q28-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q29",
+        text: "In the past week, how often have you experienced an anxiety attack that came on suddenly?",
+        type: "likert",
+        options: [
+          { id: "q29-a1", text: "Not at all", value: 0 },
+          { id: "q29-a2", text: "A few days", value: 1 },
+          { id: "q29-a3", text: "More than half the days", value: 2 },
+          { id: "q29-a4", text: "Almost every day", value: 3 },
+        ],
+      },
+      {
+        id: "q30",
+        text: "In the past week, how often have you found yourself struggling with catastrophic thinking (assuming the worst will happen)?",
+        type: "likert",
+        options: [
+          { id: "q30-a1", text: "Not at all", value: 0 },
+          { id: "q30-a2", text: "A few days", value: 1 },
+          { id: "q30-a3", text: "More than half the days", value: 2 },
+          { id: "q30-a4", text: "Almost every day", value: 3 },
         ],
       },
     ],
@@ -556,6 +643,102 @@ export const tests: Test[] = [
           { id: "q24-a5", text: "Strongly agree", value: 1 },
         ],
       },
+      {
+        id: "q25",
+        text: "I see myself as someone who is open to abstract ideas and philosophical discussions.",
+        type: "likert",
+        options: [
+          { id: "q25-a1", text: "Strongly disagree", value: 1 },
+          { id: "q25-a2", text: "Disagree", value: 2 },
+          { id: "q25-a3", text: "Neutral", value: 3 },
+          { id: "q25-a4", text: "Agree", value: 4 },
+          { id: "q25-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q26",
+        text: "I see myself as someone who is generally trusting of others.",
+        type: "likert",
+        options: [
+          { id: "q26-a1", text: "Strongly disagree", value: 1 },
+          { id: "q26-a2", text: "Disagree", value: 2 },
+          { id: "q26-a3", text: "Neutral", value: 3 },
+          { id: "q26-a4", text: "Agree", value: 4 },
+          { id: "q26-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q27",
+        text: "I see myself as someone who tends to be lazy.",
+        type: "likert",
+        options: [
+          { id: "q27-a1", text: "Strongly disagree", value: 5 },
+          { id: "q27-a2", text: "Disagree", value: 4 },
+          { id: "q27-a3", text: "Neutral", value: 3 },
+          { id: "q27-a4", text: "Agree", value: 2 },
+          { id: "q27-a5", text: "Strongly agree", value: 1 },
+        ],
+      },
+      {
+        id: "q28",
+        text: "I see myself as someone who doesn't get easily upset in stressful situations.",
+        type: "likert",
+        options: [
+          { id: "q28-a1", text: "Strongly disagree", value: 1 },
+          { id: "q28-a2", text: "Disagree", value: 2 },
+          { id: "q28-a3", text: "Neutral", value: 3 },
+          { id: "q28-a4", text: "Agree", value: 4 },
+          { id: "q28-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q29",
+        text: "I see myself as someone who has an active imagination.",
+        type: "likert",
+        options: [
+          { id: "q29-a1", text: "Strongly disagree", value: 1 },
+          { id: "q29-a2", text: "Disagree", value: 2 },
+          { id: "q29-a3", text: "Neutral", value: 3 },
+          { id: "q29-a4", text: "Agree", value: 4 },
+          { id: "q29-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q30",
+        text: "I see myself as someone who is considerate to almost everyone.",
+        type: "likert",
+        options: [
+          { id: "q30-a1", text: "Strongly disagree", value: 1 },
+          { id: "q30-a2", text: "Disagree", value: 2 },
+          { id: "q30-a3", text: "Neutral", value: 3 },
+          { id: "q30-a4", text: "Agree", value: 4 },
+          { id: "q30-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q31",
+        text: "I see myself as someone who makes plans and follows through with them.",
+        type: "likert",
+        options: [
+          { id: "q31-a1", text: "Strongly disagree", value: 1 },
+          { id: "q31-a2", text: "Disagree", value: 2 },
+          { id: "q31-a3", text: "Neutral", value: 3 },
+          { id: "q31-a4", text: "Agree", value: 4 },
+          { id: "q31-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
+      {
+        id: "q32",
+        text: "I see myself as someone who values artistic, aesthetic experiences.",
+        type: "likert",
+        options: [
+          { id: "q32-a1", text: "Strongly disagree", value: 1 },
+          { id: "q32-a2", text: "Disagree", value: 2 },
+          { id: "q32-a3", text: "Neutral", value: 3 },
+          { id: "q32-a4", text: "Agree", value: 4 },
+          { id: "q32-a5", text: "Strongly agree", value: 5 },
+        ],
+      },
     ],
   },
   {
@@ -597,4 +780,132 @@ export const tests: Test[] = [
         type: "likert",
         options: [
           { id: "q3-a1", text: "Not at all", value: 0 },
-          { id: "q3-a2", text: "
+          { id: "q3-a2", text: "Several days", value: 1 },
+          { id: "q3-a3", text: "More than half the days", value: 2 },
+          { id: "q3-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q4",
+        text: "Over the past 2 weeks, how often have you felt tired or had little energy?",
+        type: "likert",
+        options: [
+          { id: "q4-a1", text: "Not at all", value: 0 },
+          { id: "q4-a2", text: "Several days", value: 1 },
+          { id: "q4-a3", text: "More than half the days", value: 2 },
+          { id: "q4-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q5",
+        text: "Over the past 2 weeks, how often have you had poor appetite or overeating?",
+        type: "likert",
+        options: [
+          { id: "q5-a1", text: "Not at all", value: 0 },
+          { id: "q5-a2", text: "Several days", value: 1 },
+          { id: "q5-a3", text: "More than half the days", value: 2 },
+          { id: "q5-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q6",
+        text: "Over the past 2 weeks, how often have you felt bad about yourself or that you are a failure or have let yourself or your family down?",
+        type: "likert",
+        options: [
+          { id: "q6-a1", text: "Not at all", value: 0 },
+          { id: "q6-a2", text: "Several days", value: 1 },
+          { id: "q6-a3", text: "More than half the days", value: 2 },
+          { id: "q6-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q7",
+        text: "Over the past 2 weeks, how often have you had trouble concentrating on things, such as reading the newspaper or watching television?",
+        type: "likert",
+        options: [
+          { id: "q7-a1", text: "Not at all", value: 0 },
+          { id: "q7-a2", text: "Several days", value: 1 },
+          { id: "q7-a3", text: "More than half the days", value: 2 },
+          { id: "q7-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q8",
+        text: "Over the past 2 weeks, how often have you been moving or speaking so slowly that other people could have noticed, or the opposite - being so fidgety or restless that you have been moving around a lot more than usual?",
+        type: "likert",
+        options: [
+          { id: "q8-a1", text: "Not at all", value: 0 },
+          { id: "q8-a2", text: "Several days", value: 1 },
+          { id: "q8-a3", text: "More than half the days", value: 2 },
+          { id: "q8-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q9",
+        text: "Over the past 2 weeks, how often have you had thoughts that you would be better off dead, or of hurting yourself in some way?",
+        type: "likert",
+        options: [
+          { id: "q9-a1", text: "Not at all", value: 0 },
+          { id: "q9-a2", text: "Several days", value: 1 },
+          { id: "q9-a3", text: "More than half the days", value: 2 },
+          { id: "q9-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q10",
+        text: "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+        type: "likert",
+        options: [
+          { id: "q10-a1", text: "Not difficult at all", value: 0 },
+          { id: "q10-a2", text: "Somewhat difficult", value: 1 },
+          { id: "q10-a3", text: "Very difficult", value: 2 },
+          { id: "q10-a4", text: "Extremely difficult", value: 3 },
+        ],
+      },
+      {
+        id: "q11",
+        text: "Over the past 2 weeks, how often have you felt a lack of hope for the future?",
+        type: "likert",
+        options: [
+          { id: "q11-a1", text: "Not at all", value: 0 },
+          { id: "q11-a2", text: "Several days", value: 1 },
+          { id: "q11-a3", text: "More than half the days", value: 2 },
+          { id: "q11-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q12",
+        text: "Over the past 2 weeks, how often have you felt that your mood has affected your relationships with others?",
+        type: "likert",
+        options: [
+          { id: "q12-a1", text: "Not at all", value: 0 },
+          { id: "q12-a2", text: "Several days", value: 1 },
+          { id: "q12-a3", text: "More than half the days", value: 2 },
+          { id: "q12-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q13",
+        text: "Over the past 2 weeks, how often have you found yourself dwelling on past mistakes or failures?",
+        type: "likert",
+        options: [
+          { id: "q13-a1", text: "Not at all", value: 0 },
+          { id: "q13-a2", text: "Several days", value: 1 },
+          { id: "q13-a3", text: "More than half the days", value: 2 },
+          { id: "q13-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+      {
+        id: "q14",
+        text: "Over the past 2 weeks, how often have you felt a significant decrease in interest in hobbies or activities you used to enjoy?",
+        type: "likert",
+        options: [
+          { id: "q14-a1", text: "Not at all", value: 0 },
+          { id: "q14-a2", text: "Several days", value: 1 },
+          { id: "q14-a3", text: "More than half the days", value: 2 },
+          { id: "q14-a4", text: "Nearly every day", value: 3 },
+        ],
+      },
+    ],
+  }
+];
