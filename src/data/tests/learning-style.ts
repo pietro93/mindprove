@@ -8,6 +8,8 @@ export const learningStyleTest: Test = {
   fullDescription: "Find out whether you're an Activist, Reflector, Theorist, or Pragmatist learner, and get tips on how to make the most of your learning style.",
   category: "psychology",
   tags: ["learning", "education", "self-development"],
+  timeMinutes: 10,
+  completions: 5842,
   illustration: "/illustrations/psychological.svg",
   questions: [
     {
@@ -15,10 +17,10 @@ export const learningStyleTest: Test = {
       text: "When learning something new, I prefer to...",
       type: "multiple-choice",
       options: [
-        { id: "q1-a1", text: "Jump right in and try it", value: "activist" },
-        { id: "q1-a2", text: "Watch others do it first", value: "reflector" },
-        { id: "q1-a3", text: "Understand the theory behind it", value: "theorist" },
-        { id: "q1-a4", text: "See how it works in practice", value: "pragmatist" }
+        { id: "q1-a1", text: "Jump right in and try it", value: 1 },
+        { id: "q1-a2", text: "Watch others do it first", value: 2 },
+        { id: "q1-a3", text: "Understand the theory behind it", value: 3 },
+        { id: "q1-a4", text: "See how it works in practice", value: 4 }
       ]
     },
     {
@@ -26,10 +28,10 @@ export const learningStyleTest: Test = {
       text: "I learn best when...",
       type: "multiple-choice",
       options: [
-        { id: "q2-a1", text: "I can experiment and try new things", value: "activist" },
-        { id: "q2-a2", text: "I can think things through carefully", value: "reflector" },
-        { id: "q2-a3", text: "I can analyze and understand concepts", value: "theorist" },
-        { id: "q2-a4", text: "I can see practical applications", value: "pragmatist" }
+        { id: "q2-a1", text: "I can experiment and try new things", value: 1 },
+        { id: "q2-a2", text: "I can think things through carefully", value: 2 },
+        { id: "q2-a3", text: "I can analyze and understand concepts", value: 3 },
+        { id: "q2-a4", text: "I can see practical applications", value: 4 }
       ]
     },
     {
@@ -37,10 +39,10 @@ export const learningStyleTest: Test = {
       text: "When solving problems, I prefer to...",
       type: "multiple-choice",
       options: [
-        { id: "q3-a1", text: "Try different approaches", value: "activist" },
-        { id: "q3-a2", text: "Gather all information first", value: "reflector" },
-        { id: "q3-a3", text: "Find the underlying principles", value: "theorist" },
-        { id: "q3-a4", text: "Focus on practical solutions", value: "pragmatist" }
+        { id: "q3-a1", text: "Try different approaches", value: 1 },
+        { id: "q3-a2", text: "Gather all information first", value: 2 },
+        { id: "q3-a3", text: "Find the underlying principles", value: 3 },
+        { id: "q3-a4", text: "Focus on practical solutions", value: 4 }
       ]
     },
     {
@@ -48,10 +50,10 @@ export const learningStyleTest: Test = {
       text: "In group work, I typically...",
       type: "multiple-choice",
       options: [
-        { id: "q4-a1", text: "Generate new ideas and possibilities", value: "activist" },
-        { id: "q4-a2", text: "Listen and observe before contributing", value: "reflector" },
-        { id: "q4-a3", text: "Analyze and organize ideas", value: "theorist" },
-        { id: "q4-a4", text: "Focus on getting things done", value: "pragmatist" }
+        { id: "q4-a1", text: "Generate new ideas and possibilities", value: 1 },
+        { id: "q4-a2", text: "Listen and observe before contributing", value: 2 },
+        { id: "q4-a3", text: "Analyze and organize ideas", value: 3 },
+        { id: "q4-a4", text: "Focus on getting things done", value: 4 }
       ]
     },
     {
@@ -59,10 +61,10 @@ export const learningStyleTest: Test = {
       text: "I find it easiest to learn when...",
       type: "multiple-choice",
       options: [
-        { id: "q5-a1", text: "I can be spontaneous and flexible", value: "activist" },
-        { id: "q5-a2", text: "I have time to think things through", value: "reflector" },
-        { id: "q5-a3", text: "I can see how things fit together", value: "theorist" },
-        { id: "q5-a4", text: "I can apply what I'm learning", value: "pragmatist" }
+        { id: "q5-a1", text: "I can be spontaneous and flexible", value: 1 },
+        { id: "q5-a2", text: "I have time to think things through", value: 2 },
+        { id: "q5-a3", text: "I can see how things fit together", value: 3 },
+        { id: "q5-a4", text: "I can apply what I'm learning", value: 4 }
       ]
     }
   ]

@@ -8,6 +8,8 @@ export const emotionalIntelligenceTest: Test = {
   fullDescription: "Discover your emotional intelligence level and learn how well you understand and manage both your own emotions and those of others.",
   category: "psychology",
   tags: ["emotions", "self-awareness", "relationships"],
+  timeMinutes: 8,
+  completions: 7126,
   illustration: "/illustrations/emotional.svg",
   questions: [
     {

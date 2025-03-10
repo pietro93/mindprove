@@ -8,6 +8,8 @@ export const mindfulnessTest: Test = {
   fullDescription: "Discover how mindful you are in daily life and how kindly you treat yourself, especially during challenging times.",
   category: "psychology",
   tags: ["mindfulness", "self-compassion", "well-being"],
+  timeMinutes: 7,
+  completions: 6234,
   illustration: "/illustrations/mindfulness.svg",
   questions: [
     {
